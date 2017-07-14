@@ -27,8 +27,14 @@ function get_gioithieu(){
 
 	$sql = "select * from #_gioithieu ";
 	$d->query($sql);
-	if($d->num_rows()==0) transfer("Dữ liệu chưa khởi tạo.", "index.php");
-	$item = $d->fetch_array();
+	if($d->num_rows()==0)
+	{
+	    
+	}
+	else 
+	{
+	   $item = $d->fetch_array();
+	}
 }
 
 function save_gioithieu(){

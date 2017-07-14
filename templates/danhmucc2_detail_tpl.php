@@ -43,7 +43,7 @@
           <div class="inner">
             <h4><a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html"><?=$result_spnam[$i]["ten_vi"]?></a></h4>
             <p><span class="price"><?php echo number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";?></span><br>
-              <span class="price-off"><?php echo number_format ((!empty($result_spnam[$i]['giagiam']))?$result_spnam[$i]['giagiam']:0,0,",",".")." vnđ";?></span></p>
+              <span class="price-off"><?php echo number_format ((!empty($result_spnam[$i]['giagiam']))?$result_spnam[$i]['giagiam']:$result_spnam[$i]['gia'],0,",",".")." vnđ";?></span></p>
           </div>
         </div>
         <!-- /.products-thumb -->

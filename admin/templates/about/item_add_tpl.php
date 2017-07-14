@@ -1,3 +1,11 @@
+<?php
+$baseUrl1 = '../Scripts/ckeditor_upload/';
+$_SESSION['_baseUrl1'] = $baseUrl1; 
+?>
+<script language="javascript">
+	var _baseUrl1 = '../Scripts/';
+</script>
+<script src="../Scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 <script type="text/javascript">
 	tinyMCE.init({
 		// General options
@@ -51,10 +59,10 @@ height:"350px",
 <form name="frm" method="post" action="index.php?com=about&act=save" enctype="multipart/form-data" class="nhaplieu">      
 	
   
- 
-  <b>Nội dung </b><br/>
-	<div>
-	 <textarea name="noidung_vi" id="noidung_vi"><?=$item['noidung_vi']?></textarea></div>
+ <b>Nội dung</b> <br /> 
+    <textarea class="ckeditor" id="noidung_vi"  name="noidung_vi" cols="80" rows="5" ><?php echo (!empty($item['noidung_vi'])?$item['noidung_vi']:"")?>
+    </textarea>
+    <br /> 
      
   
      

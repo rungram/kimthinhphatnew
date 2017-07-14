@@ -273,6 +273,8 @@
               </div>
           <?php 
                 $i++;
+                if($i<count($result_detailq))
+                {
           ?>
             <div class="media">
                 <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news"  alt=""></a> </div>
@@ -281,10 +283,13 @@
                   <p class="sort"><?=$result_detailq[$i]['mota_vi']?></p>
                   <p><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
                 </div>
-              </div>
         </div>
               
          <?php 
+                }
+        ?>
+        </div>
+         <?php
              }
          } 
          ?>

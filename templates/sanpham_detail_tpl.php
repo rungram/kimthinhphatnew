@@ -73,7 +73,7 @@ if(isset($_GET['id']))
         <div id="ninja-slider">
           <div>
             <div class="slider-inner">
-              <ul style="overflow: hidden; padding-top: 50%; height: 0px;"><li class="" style="left: 0px; z-index: 0;"><a class="ns-img" href="images/l1.jpg" style="background-image: url(&quot;file:///D:/xampp/htdocs/kimthinhphat/_layout/images/l1.jpg&quot;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l2.jpg" style="background-image: url(&quot;images/l2.jpg&quot;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l3.jpg" style="background-image: url(&quot;images/l3.jpg&quot;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l4.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l5.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l6.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l7.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l8.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l9.jpg" style="background-image: url(&quot;images/l9.jpg&quot;);"></a></li><li class="ns-show" style="z-index: 1; left: 0px;"><a class="ns-img" href="images/l10.jpg" style="background-image: url(&quot;images/l10.jpg&quot;);"></a></li></ul>
+              <ul style="overflow: hidden; padding-top: 50%; height: 0px;"><li class="" style="left: 0px; z-index: 0;"><a class="ns-img" href="upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>" style="background-image: url(&quot;file:///upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l2.jpg" style="background-image: url(&quot;images/l2.jpg&quot;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l3.jpg" style="background-image: url(&quot;images/l3.jpg&quot;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l4.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l5.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l6.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l7.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l8.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l9.jpg" style="background-image: url(&quot;images/l9.jpg&quot;);"></a></li><li class="ns-show" style="z-index: 1; left: 0px;"><a class="ns-img" href="images/l10.jpg" style="background-image: url(&quot;images/l10.jpg&quot;);"></a></li></ul>
               <div class="fs-icon-room" title="Expand/Close"></div>
             <div id="ninja-slider-pager"><a rel="0" class="">1</a><a rel="1" class="">2</a><a rel="2" class="">3</a><a rel="3" class="">4</a><a rel="4" class="">5</a><a rel="5" class="">6</a><a rel="6" class="">7</a><a rel="7" class="">8</a><a rel="8" class="">9</a><a rel="9" class="active">10</a></div><div id="ninja-slider-prev"><div>10 ∕ 10</div></div><div id="ninja-slider-next"><div>10 ∕ 10</div></div><div id="ninja-slider-pause-play"></div></div>
             <div id="thumbnail-slider">
@@ -87,16 +87,14 @@ if(isset($_GET['id']))
     <div class="col-lg-6">
                                         
 										
-    <h2>Máy lạnh LG280 tiết kiệm điện năng</h2>
+    <h2><?=$chitiet_sp["ten_vi"]?></h2>
     <hr>
     <div class="decription">
-        <p>Our dedicated and highly trained in-house customer service and technical support staff is available to answer your questions 24/7.</p>
-        <p>We work with you to understand your business so we can provide you with a customized account that fits your needs. </p>
-        <p>Our individual approach ensures you receive the lowest cost.</p>
+        <?=$chitiet_sp["mota_vi"]?>
     </div>
     <h4>
-    	<span class="price">$49.99</span>
-        <span class="price-off">$39.99</span>
+    	<span class="price"><?php echo number_format ($chitiet_sp['gia'],0,",",".")." vnđ";?></span>
+        <span class="price-off"><?php echo number_format ((!empty($chitiet_sp['giagiam']))?$chitiet_sp['giagiam']:$chitiet_sp['gia'],0,",",".")." vnđ";?></span>
         <span class="VAT">10%</span>
     </h4>
     <div class="clearfix"></div>
@@ -112,4 +110,17 @@ if(isset($_GET['id']))
      </div>
 
     </div>
+</div>
+<div class="container detailsp">
+
+					  <h4 class="text-center sp">THÔNG TIN CHI TIẾT SẢN PHẨM</h4>
+                      <hr>
+						<?=$chitiet_sp['mota_en']?>
+                         <div class="divider text-center">
+                                    	<button class="btn btn-primary"><i class="fa fa-caret-right" aria-hidden="true"></i>
+ Đặt hàng</button> 
+
+                                        <button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>
+ Liên hệ</button> 
+                        </div>
 </div>

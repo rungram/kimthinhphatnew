@@ -217,6 +217,7 @@ function save_item(){
 		$data['stt'] = $_POST['stt'];
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['ngaytao'] = lay_thoigian();	
+		$data['gioithieu'] = isset($_POST['gioithieu']) ? 1 : 0;
 		$d->setTable('tinloai1_1');
 		$d->setWhere('id', $id);
 		if($d->update($data))
@@ -244,6 +245,7 @@ function save_item(){
 		$data['stt'] = $_POST['stt'];
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['ngaytao'] = lay_thoigian();	
+		$data['gioithieu'] = isset($_POST['gioithieu']) ? 1 : 0;
 		$d->setTable('tinloai1_1');
 		if($d->insert($data))
 		{			
@@ -452,7 +454,6 @@ function save_loai(){
 		$data['stt'] = $_POST['stt'];
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['ngaytao'] = time();
-		
 		$d->setTable('tinloai1_1_item');
 		if($d->insert($data))
 			redirect("index.php?com=tinloai1_1&act=man_item");
