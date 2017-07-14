@@ -23,7 +23,25 @@ $_SESSION['_baseUrl1'] = $baseUrl1;
     <b>Số thứ tự</b> <input type="text" name="stt" value="<?=isset($item['stt'])?$item['stt']:1?>" style="width:30px"><br>
 <b>Nổi bật</b> <input type="checkbox" name="noibat" <?=(!isset($item['noibat']) || $item['noibat']==1)?'checked="checked"':''?>><br />
 	<b>Hiển thị</b> <input type="checkbox" name="hienthi" <?=(!isset($item['hienthi']) || $item['hienthi']==1)?'checked="checked"':''?>><br />
-	
+	<b>Loại menu</b>
+	<select name="menutype" id="menutype" class="main_font">
+	<?php 
+		if($item['menutype']==2)
+		{
+	?>
+		<option value="1">Dịch vụ</option>	
+		<option value="2" selected="selected">Sản phẩm</option>
+	<?php
+		}
+		else 
+		{
+	?>
+		<option value="1">Dịch vụ</option>		
+		<option value="2">Sản phẩm</option>
+	<?php	
+		}
+	?>	
+	</select><br/>
 	<input type="hidden" name="id" id="id" value="<?=@$item['id']?>" />
 	<input type="submit" value="Lưu" class="btn" />
 	<input type="button" value="Thoát" onclick="javascript:window.location='index.php?com=product&act=man_list'" class="btn" />

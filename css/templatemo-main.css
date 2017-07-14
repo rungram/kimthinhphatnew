@@ -63,7 +63,7 @@ table {
 	Basic Styling 
 --------------------------------------------------------*/
 body {
-  font: 14px/23px "Roboto", sans-serif;
+  font-size:14px; font-family:Roboto; font-weight:500;
   color: #333; line-height:25px; overflow-x:hidden
 }
 
@@ -239,7 +239,7 @@ ul.dropdown-menu > li{ background:#02a14b;width:100% !important; border-bottom:1
 	Basic Layout Styles 
 --------------------------------------------------------*/
 .title-section {
-  margin-bottom: 40px;
+  margin-top: 20px;
 }
 .title-section h2 {
   font-size: 24px;
@@ -359,6 +359,68 @@ ul.dropdown-menu > li{ background:#02a14b;width:100% !important; border-bottom:1
   visibility: visible;
 }
 
+/*#products-cata - Product background #fff */
+#products-cata {
+  padding-bottom: 20px;
+  margin-top: 20px;
+  background:#fff; color:#333;
+}
+#products-cata .title-section h2 {
+  color: #f60;
+}
+#products-cata .products-thumb {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px
+}
+#products-cata .products-thumb img {
+  width: 100%;
+  height:200px;padding:10px 0  
+}
+#products-cata .products-thumb img:hover { opacity:0.8
+}
+#products-cata .products-thumb .overlay {
+  opacity: 0;
+  visibility: visible;
+  background: rgba(227, 114, 46, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#products-cata .products-thumb .overlay .inner {
+  position: absolute;
+  padding: 20px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-align: center; color:#333
+}
+#products-cata .products-thumb .overlay .inner h4 {
+  font-size: 18px;
+  margin-bottom: 10px; color:#333 !important
+}
+#products-cata .products-thumb .overlay .inner h4 a {
+  color: #333;
+}
+#products-cata .products-thumb .overlay .inner span {
+  font-weight: 300;
+  color: #333;
+}
+#products-cata .products-thumb:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+#products-cata .price{ color:#333; font-weight:bold; padding-right:10px; font-size:14px; text-transform:uppercase}
+
+#products-cata .price-off{ color:#333;font-size:14px;font-weight:bold; text-transform:uppercase}
+
 /*------------------------------------------------------
 	About Styles 
 --------------------------------------------------------*/
@@ -456,6 +518,25 @@ ul.dropdown-menu > li{ background:#02a14b;width:100% !important; border-bottom:1
 #news_home{ padding:20px;}
 .img_news{width:150px;}
 .img_news:hover{border:1px #f57e00 solid;}
+#moinhat.moinhat{ background:#00af50; color:#fff !important; margin:20px 0;}
+#moinhat h3{ color:#fff ;padding-top:15px; font-size:16px}
+#moinhat h3 a,#moinhat a{ color:#fff !important;}
+#news, #gioithieu,#dichvu{ margin-top:60px;}
+#detail-pro  { margin-top:80px;}
+#products-cata,#contact,#relate{ margin-top:40px;}
+#news .news_item .news-img img {
+  max-width: 100%; width:200px;
+  position: relative;
+}
+#dichvu img{  padding:0}
+#dichvu .col-lg-4{ padding:0 !important}
+#dichvu h3{ padding-top:15px}
+#dichvu p{ margin-bottom:15px}
+.dichvu{-webkit-box-shadow: 1px 10px 12px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 10px 12px -5px rgba(0,0,0,0.75);
+box-shadow: 1px 10px 12px -5px rgba(0,0,0,0.75); border:1px #ddd solid; margin-top:30px; margin-bottom:40px}
+.media{ margin-bottom:35px !important}
+.img_moinhat{ width:300px;}
 #services .service-item,#why .service-item{ text-align:center}
 #why { padding:20px; margin:10px 0; border:1px #EBD40A solid}
 h4.widget-title  { text-align:center}
@@ -466,9 +547,29 @@ h4.widget-title  { text-align:center}
 .price::before{ content:"Giá niêm yết: ";font-size:12px}
 .price-off{ color:#fff;font-size:14px;font-weight:bold; text-transform:uppercase}
 .price-off::before{content:"Giá đang KM: ";font-size:12px}
+
+#detail-pro,#thicong { margin-top:80px}
+
+#detail-pro .price {
+  color: #00af50;
+  font-weight:900; font-size:24px;
+}
+#detail-pro .price-off {
+  font-size: 20px;
+  margin-left: 25px;
+  text-decoration-style: solid; color:#f57e00
+}
+#detail-pro .button a{ color:#fff; }
+#detail-pro .btn{padding:5px; margin-bottom:3px}
+#detail-pro #dQy{ width:15%}
+#detail-pro .col-lg-6{ padding-left:0 !important}
+.detailsp{ margin-top:30px; padding-bottom:20px; -webkit-box-shadow: 1px 10px 12px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 10px 12px -5px rgba(0,0,0,0.75);
+box-shadow: 1px 10px 12px -5px rgba(0,0,0,0.75); border:1px #ddd solid;}
+.VAT::before{ content:".V.A.T: "; color:#00af50; padding-left:20px}
 .col-sp{width:19.5%; border:1px #fff solid;  margin:15px -1px 15px 0}
-.inner h4 a{ color:#fff !important; line-height:22px;}
-.inner h4 a:hover{ color:#ff0 !important}
+#products .inner h4 a{ color:#fff !important; line-height:22px;}
+#products .inner h4 a:hover{ color:#ff0 !important}
 /*------------------------------------------------------
 	Contact Styles 
 --------------------------------------------------------*/
@@ -679,6 +780,7 @@ IPHONE 4-4S-5 LANDSCAPE (568x320)
   .col-sp{ width:100% !important}
   #products .products-thumb img{ height:auto !important}
 }
+@media (max-width: 760px) {.sort,#dichvu a,.detail{ padding:10px}}
 @media (max-width: 480px) {
 	.responsive-menu .menu {
     top: 44px; width:120%; margin:0 -20px !important; padding:0 !important

@@ -264,7 +264,7 @@
          ?>
          <div class="col-md-4 col-sm-6">
             <div class="media">
-                <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" alt=""></a> </div>
+                <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news" alt="Image"></a> </div>
                 <div class="  media-body">
                   <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
                   <p class="sort"><?=$result_detailq[$i]['mota_vi']?></p>
@@ -275,7 +275,7 @@
                 $i++;
           ?>
             <div class="media">
-                <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" alt=""></a> </div>
+                <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news"  alt=""></a> </div>
                 <div class="  media-body">
                   <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
                   <p class="sort"><?=$result_detailq[$i]['mota_vi']?></p>

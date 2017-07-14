@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
 
 	/************** Single Page Nav Plugin *********************/
 	$('.menu').singlePageNav(
-		{filter: ':not(.external)'}
+		{filter: ':(.external)'}
 	);
 
 

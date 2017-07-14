@@ -527,6 +527,7 @@ function save_cat(){
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['noibat'] = isset($_POST['noibat']) ? 1 : 0;
 		$data['url'] = $_POST['url'];
+		$data['menutype'] = $_POST['menutype'];
 		$data['ngaysua'] = time();
 			$data['noidung_vi'] = addslashes($_POST['noidung_vi']);
 		$d->setTable('product_cat');
@@ -547,6 +548,7 @@ function save_cat(){
 		$data['ten_en'] = $_POST['ten_en'];
 		$data['ten_cn'] = $_POST['ten_cn'];
 		$data['tenkhongdau'] = changeTitle($_POST['ten_vi']);	
+		$data['menutype'] = $_POST['menutype'];
 		$data['stt'] = $_POST['stt'];
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['noibat'] = isset($_POST['noibat']) ? 1 : 0;
@@ -661,7 +663,7 @@ function save_loai(){
 		$data['ten_vi'] = $_POST['ten_vi'];
 		$data['ten_en'] = $_POST['ten_en'];
 		$data['ten_cn'] = $_POST['ten_cn'];
-		
+		$data['menutype'] = $_POST['menutype'];
 		$data['tenkhongdau'] = changeTitle($_POST['ten_vi']);		
 		$data['id_list'] = $_POST['id_list'];	
 		$data['id_cat']= $_POST['id_cat'];	
@@ -693,7 +695,7 @@ function save_loai(){
 		$data['stt'] = $_POST['stt'];
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['ngaytao'] = time();
-		
+		$data['menutype'] = $_POST['menutype'];
 		$d->setTable('product_item');
 		if($d->insert($data))
 			redirect("index.php?com=product&act=man_item");
@@ -809,6 +811,7 @@ function save_list(){
 		$data['ngaysua'] = time();
 		$data['mota_vi'] = $_POST['mota_vi'];
 		$data['noibat'] = isset($_POST['noibat']) ? 1 : 0;
+		$data['menutype'] = $_POST['menutype'];
 		$d->setTable('product_list');
 		$d->setWhere('id', $id);
 		if($d->update($data))
@@ -832,6 +835,7 @@ function save_list(){
 		$data['ngaytao'] = time();
 		$data['noidung_vi'] = addslashes($_POST['noidung_vi']);
 		$data['noibat'] = isset($_POST['noibat']) ? 1 : 0;
+		$data['menutype'] = $_POST['menutype'];
 		$d->setTable('product_list');
 		if($d->insert($data))
 			redirect("index.php?com=product&act=man_list");

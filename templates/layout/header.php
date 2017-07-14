@@ -51,70 +51,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="menu hidden-sm hidden-xs">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
-                                    <li class="dropdown">
-                                        <a href="san-pham.html" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Sản phẩm <i class="fa fa-angle-down"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-submenu">
-                                                <a href="san-pham.html" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown">Điện Lạnh</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="chi-tiet-san-pham.html">DAIKIN </a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">TOSHIBAR</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">PANASONIC</a></li>
-
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown-submenu">
-                                                <a href="san-pham.html" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown">Camera</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="chi-tiet-san-pham.html">VANTECH </a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">AVTECH</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">QUESTEK</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">HIKVISION</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown-submenu">
-                                                <a href="san-pham.html" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown">Tổng đài điện thoại</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="chi-tiet-san-pham.html">VANTECH </a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">AVTECH</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">QUESTEK</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">HIKVISION</a></li>
-
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown-submenu">
-                                                <a href="san-pham.html" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown">Báo khói báo cháy</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="chi-tiet-san-pham.html">VANTECH </a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">AVTECH</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">QUESTEK</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">HIKVISION</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="san-pham.html" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Dịch vụ <i class="fa fa-angle-down"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-submenu">
-                                                <a href="san-pham.html" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown">Điện Lạnh</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="chi-tiet-san-pham.html">DAIKIN </a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">TOSHIBAR</a></li>
-                                                    <li><a href="chi-tiet-san-pham.html">PANASONIC</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="thi-cong.html">Thi Công</a></li>
-                                    <li><a href="tin-tuc.html">Tin tức & Sự kiện</a></li>
-                                    <li><a href="lien-he.html">Liên hệ</a></li>
-                                </ul>
-                            </div> <!-- /.menu -->
+                            <?php include _template."layout/menu_top.php"; ?>
                         </div> <!-- /.col-md-8 -->
                     </div> <!-- /.row -->
                     <div class="responsive-menu toggle-menu text-right visible-xs visible-sm">
