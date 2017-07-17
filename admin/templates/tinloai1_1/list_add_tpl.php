@@ -6,6 +6,7 @@
 
 	<b>Hiển thị</b> <input type="checkbox" name="hienthi" <?=(!isset($item['hienthi']) || $item['hienthi']==1)?'checked="checked"':''?>><br />
 	
+	<b>Dịch vụ</b> <input type="checkbox" name="dichvu" <?=($item['dichvu']==1)?'checked="checked"':''?>><br /> 
 	<input type="hidden" name="id" id="id" value="<?=@$item['id']?>" />
 	<input type="submit" value="Lưu" class="btn" />
 	<input type="button" value="Thoát" onclick="javascript:window.location='index.php?com=tinloai1_1&act=man_list'" class="btn" />

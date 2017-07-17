@@ -541,7 +541,7 @@ function save_list(){
 		$data['tenkhongdau'] = changeTitle($_POST['ten_vi']);
 		$data['stt'] = $_POST['stt'];
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
-	
+		$data['dichvu'] = isset($_POST['dichvu']) ? 1 : 0;
 		
 		$d->setTable('tinloai1_1_list');
 		$d->setWhere('id', $id);
@@ -556,7 +556,7 @@ function save_list(){
 		$data['tenkhongdau'] = changeTitle($_POST['ten_vi']);
 		$data['stt'] = $_POST['stt'];
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
-	
+		$data['dichvu'] = isset($_POST['dichvu']) ? 1 : 0;
 		
 		$d->setTable('tinloai1_1_list');
 		if($d->insert($data))

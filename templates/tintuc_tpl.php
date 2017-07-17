@@ -1,59 +1,82 @@
 <?php 
+
 			$d->reset();
-			$id =  addslashes($_GET['id']);
-			$sql_tinl="select * from #_tinloai1_1 where hienthi =1 order by id desc";
+			$sql_tinl="select * from #_tinloai1_1 where hienthi =1 order by id desc limit 1";
 			$d->query($sql_tinl);	
-			$result_tinl=$d->result_array();		
-			$curPage = isset($_GET['p']) ? $_GET['p'] : 1;
-			$url=getCurrentPageURL();
-			$maxR=2;
-			$maxP=5;
-			$paging=paging_home($result_tinl , $url, $curPage, $maxR, $maxP);
-			$result_tinl=$paging['source'];
-			
-			
-			$sql_tinll="select * from #_tinloai1_1_list where hienthi =1 order by stt asc";
-			$d->query($sql_tinll);	
-			$result_tinll=$d->result_array();	
-			
-			$sql_tinll_name="select * from #_tinloai1_1_list where id='".$id."'";
-			$d->query($sql_tinll_name);	
-			$result_tinll_name=$d->fetch_array();	
+		    $result_detail=$d->fetch_array();
+
+		    $id = $result_detail["id"];
+			$d->reset();
+    		$result_detailq="select * from #_tinloai1_1 where hienthi =1 and id<>'$id'";
+    		$d->query($result_detailq); 
+    		$result_detailq=$d->result_array();
+
+    		$curPage = isset($_GET['p']) ? $_GET['p'] : 1;
+    		$url=getCurrentPageURL();
+    		$maxR=4;
+    		$maxP=5;
+    		$paging=paging_home($result_detailq , $url, $curPage, $maxR, $maxP);
+    		$result_detailq=$paging['source'];
 ?>
-<section>
-    	<div class="container">
-            <div class="col-lg-12">
-            
-              <div class="col-lg-8 col-sm-8 col-md-6 col-xs-12">
-                <h2 class="box-header">TIN TỨC </h2>
-                  
-                     <?php
-                     for($i=0;$i<count($result_tinl);$i++)
-                     { 
-                     ?>
-                     <div class="media tintuc wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
-                    	  <div class="pull-left"> <img class="img-responsive" src="upload/tinloai1_1/<?=$result_tinl[$i]['thumb']?>" alt="<?=$result_tinl[$i]['ten_vi']?>" alt="<?=$result_tinl[$i]["ten_vi"]?>" "> </div>
-                          <div class="media-body"><a href="tin-tuc-detail/<?=$result_tinl[$i]['tenkhongdau']?>-<?=$result_tinl[$i]['id']?>.html">
-                            <h3 class="media-heading"><?=$result_tinl[$i]['ten_vi']?></h3>
-                            <span><?=$result_tinl[$i]['mota_vi']?></span></a>
-                            
-                          </div>
-                          
-                  </div>
-                      <?php
-                     } 
-                      ?>
-                  <div class="pagination">
-                                    <nav aria-label="Page navigation">
-                                        <div class="pagination-container">
-                                        <ul class="pagination">
-                                        <?php echo $paging['paging'];?>
-                                        </ul></div>
-                                    </nav>
-                                </div>
-              </div>
-                <?php include _template."layout/content_right.php"; ?>
-              </div>  
+<div id="news" class="section-content">
+    <div class="title-section text-center">
+      <h2>Tin tức</h2>
+      <span></span></div>
+    <!-- /.title-section -->
+    <div id="moinhat" class="moinhat">
+      <div class="container">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a href="tin-tuc-detail/<?=$result_detail['tenkhongdau']?>-<?=$result_detail['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detail['thumb']?>" class="img-responsive" alt="Image"></a></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <h3><a href="chi-tiet.html"><?=$result_detail["ten_vi"]?></a></h3>
+              <?=$result_detail["noidung_vi"]?>
+              <hr>
+              <p><a href="tin-tuc-detail/<?=$result_detail['tenkhongdau']?>-<?=$result_detail['id']?>.html" class="">Xem thêm .. <i class="ti-angle-right"></i></a></p>
+            </div>
+      </div>
+      <!-- /.team-member -->
+    </div>
+    <!-- /.col-md-6 -->
+    <div class="container">
+       <?php
+         for($i=0;$i<count($result_detailq);$i++)
+         { 
+         ?>
+         <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="media">
+            <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news" alt="Image"></a></div>
+            <div class="  media-body">
+              <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
+              <p class="sort">Vệ sinh máy giặt không chỉ giúp cho máy làm việc hiệu quả, tăng tuổi thọ mà còn... </p>
+              <p><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
+            </div>
+          </div>
+          <?php 
+                $i++;
+                if($i<count($result_detailq))
+                {
+          ?>
+            <div class="media">
+            <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news" alt="Image"></a></div>
+            <div class="  media-body">
+              <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
+              <p class="sort">Vệ sinh máy giặt không chỉ giúp cho máy làm việc hiệu quả, tăng tuổi thọ mà còn... </p>
+              <p><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
+            </div>
+          </div>
+              
+         <?php 
+                }
+        ?>  
         </div>
-    </section>
-    <div class=" clearfix"></div>
+         <?php
+         }
+         ?>
+    	<!-- /.col-md-6 -->
+    </div>
+     <hr>
+     <div class="text-center">
+                    <ul class="pagination">
+                          <?=$paging['paging']?></div>
+                      </ul>
+        </div>   
+     </div>

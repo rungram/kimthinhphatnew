@@ -19,7 +19,6 @@
 		$result_detailq="select * from #_tinloai1_1 where	id<>'$id'";
 		$d->query($result_detailq); 
 		$result_detailq=$d->result_array();
-
 		$curPage = isset($_GET['p']) ? $_GET['p'] : 1;
 		$url=getCurrentPageURL();
 		$maxR=4;

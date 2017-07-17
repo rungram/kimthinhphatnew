@@ -14,68 +14,85 @@
 		$d->query($sql_tinll);	
 		$result_detaill=$d->result_array(); 
 		
-		
+		$id_list = $result_detail['id_list'];
 		$d->reset();
-		$result_detailq="select * from #_tinloai1_1 where	id<>'$id' limit 0,3";
-		$d->query($result_detailq); 
+		$sql_tinll="select * from #_tinloai1_1 where id<>'$id' and id_list ='$id_list'";
+		$d->query($sql_tinll); 
 		$result_detailq=$d->result_array();
 
+		$curPage = isset($_GET['p']) ? $_GET['p'] : 1;
+		$url=getCurrentPageURL();
+		$maxR=4;
+		$maxP=5;
+		$paging=paging_home($result_detailq , $url, $curPage, $maxR, $maxP);
+		$result_detailq=$paging['source'];
 ?>
-	
-<section>
-    	<div class="container">
-            <div class="col-lg-12">
-            
-              <div class="col-lg-8 col-sm-12 col-md-12 col-xs-12">
-                <h2 class="box-header"><?=$result_detail["ten_vi"]?></h2>
-                 <div class="panel-body border">
-                            <p><img src="upload/tinloai1_1/<?=$result_detail['thumb']?>"></p>
-                            <?=$result_detail["noidung_vi"]?>
-                            
-                            <div class="text-center">
-                            <!-- Facebook -->
-        <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
-        <img src="images/shareFB.png" alt="Facebook" />
-    	</a>
-      <!-- Google+ -->
-        <a href="https://plus.google.com/share?url=https://simplesharebuttons.com" target="_blank">
-            <img src="images/shareGmail.png" alt="Google" />
-        </a>
-                            </div>
-                 
-                 
-                 </div>
-                 <div class="border mar-top">
-                <h2 class="box-header">BÀI VIẾT LIÊN QUAN</h2>
-            	  <div class="col-xs-12 col-sm-12 wow fadeInDown border  animated" style="visibility: visible; animation-name: fadeInDown;">
-                    <?php
-                     for($i=0;$i<count($result_detailq);$i++)
-                     { 
-                     ?>
-                        <div class="testimonial padd">
-                          <div class="media testimonial-inner">
-                          <a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html">
-                            <div class="pull-left"> <img class="img-responsive thum" src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>"> </div>
-                            <div class="media-body">
-                              <h2><?=$result_detailq[$i]['ten_vi']?></h2>
-                              <p class="pull-left"><?=$result_detailq[$i]['mota_vi']?></p>
-                              <span class="pull-right text-muted small"><em><?=$result_detailq[$i]['ngaytao']?></em>
-                             </span>  
-                               </div>
-                            </a> 
-                          </div>
-                        </div>
-                    <?php
-                     } 
-                     ?>
-                  </div>
-                
-                
-                </div>
-                  
+<div id="gioithieu" class="section-content">
+     <div class="title-section text-center">
+      <h2>Chi tiết</h2>
+      <span></span>
+     </div>
+    <!-- /.title-section -->
+    <div class="container">
+      <div class="detail">
+              <h3><a href="chi-tiet.html"><?=$result_detail["ten_vi"]?></a></h3>
+              <p class="child"><?=$result_detail["ngaytao"]?></p>
+              <hr>
+              <div class="para">
+                <?=$result_detail["noidung_vi"]?>
               </div>
-              <?php include _template."layout/content_right.php"; ?>
-              </div>  
+              <div class="social">
+              	<img src="images/mangxahoi.png">
+              </div>
+      </div>
+      <!-- /.team-member -->
+    </div>
+    <!-- /.col-md-6 -->
+     <div class="title-section text-center">
+      <h2>Bài viết liên quan</h2>
+      <span></span>
+     </div>    
+     <div id="relate" class="container">
+     <?php
+         for($i=0;$i<count($result_detailq);$i++)
+         { 
+         ?>
+         <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="media">
+            <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news" alt="Image"></a></div>
+            <div class="  media-body">
+              <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
+              <p class="sort">Vệ sinh máy giặt không chỉ giúp cho máy làm việc hiệu quả, tăng tuổi thọ mà còn... </p>
+              <p><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
+            </div>
+          </div>
+          <?php 
+                $i++;
+                if($i<count($result_detailq))
+                {
+          ?>
+            <div class="media">
+            <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news" alt="Image"></a></div>
+            <div class="  media-body">
+              <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
+              <p class="sort">Vệ sinh máy giặt không chỉ giúp cho máy làm việc hiệu quả, tăng tuổi thọ mà còn... </p>
+              <p><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
+            </div>
+          </div>
+              
+         <?php 
+                }
+        ?>  
         </div>
-    </section>
-    <div class=" clearfix"></div>
+         <?php
+         }
+         ?>
+    	<!-- /.col-md-6 -->
+    </div>
+     <hr>
+     <div class="text-center">
+                    <ul class="pagination">
+                          <?=$paging['paging']?></div>
+                      </ul>
+        </div>  
+      </div>

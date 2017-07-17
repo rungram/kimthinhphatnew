@@ -125,7 +125,8 @@ function get_main_cat()
 ?>
 
 <form name="frm" method="post" action="index.php?com=tinloai1_1&act=save&curPage=<?=$_REQUEST['curPage']?>" enctype="multipart/form-data" class="nhaplieu">
-    
+    <b>Danh mục cấp 1:</b><?=get_main_list();?><br /><br />
+	<b>Danh mục cấp 2:</b><?=get_main_cat();?><br /><br />
     <?php if ($_REQUEST['act']==edit)
 	{?>
 	<b>Hình hiện tại:</b><img src="<?=_upload_tinloai1_1.$item['thumb']?>"  width="120" alt="NO PHOTO" /><br />
