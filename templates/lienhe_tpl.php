@@ -39,7 +39,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
                                 <textarea name="noidung" id="message" rows="6"></textarea>
                             </p>
                             <button type="submit" name="submit" class="mainBtn">Gửi liên hệ</button>
-                            <input class="mainBtn" type="submit" name="" value="Gửi liên hệ">
                         </div>
                     </form> 
                 </div> <!-- /.col-md-3 -->
