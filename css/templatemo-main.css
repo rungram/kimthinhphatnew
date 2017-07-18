@@ -141,15 +141,6 @@ div.info_cty > h3{color: #00af50; }
   width: 100%;
   z-index: 9999;
   padding: 0px 0;
-  background:#00af50;
-  -webkit-box-shadow: 0 2px 4px rgba(1, 1, 1, 0.15) ;
-  -moz-box-shadow: 0 2px 4px rgba(1, 1, 1, 0.15) ;
-  box-shadow: 0 2px 4px rgba(1, 1, 1, 0.15) ;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
 }
 .main-header .logo {
   margin-top: 5px;
@@ -162,6 +153,9 @@ div.info_cty > h3{color: #00af50; }
 .main-header .logo h1 a {
   color: #444444;
 }
+ul.nav.navbar-nav > li{border-right:1px #039b49 solid !important; padding:0 0px;border-bottom:1px #039b49 solid}
+ul.dropdown-menu > li{border-bottom:1px #039b49 solid } 
+.no-bor{border-bottom: none !important}
 .main-header .menu {
   margin-top: 0px;
 }
@@ -172,7 +166,7 @@ div.info_cty > h3{color: #00af50; }
 .main-header .menu ul li a {
   text-transform: uppercase;
   color: #fff;
-  font-size: 14px; margin:2px 30px ;
+  font-size: 16px; margin:22px 30px ;
   -webkit-border-radius: 3px;
   border-radius: 3px; font-weight:700; background:none
 }
@@ -180,7 +174,7 @@ div.info_cty > h3{color: #00af50; }
   background: #e3722e;
   color: white;
 }
-
+.navbar-nav > li > a{ font-size:15px !important}
 .main-header-shrink {
   padding: 0px 0;
   top: 0;
@@ -194,46 +188,7 @@ div.info_cty > h3{color: #00af50; }
   font-size: 30px;
   color: #fff;
 }
-.responsive-menu .menu {
-  display: none;
-  position: absolute;
-  top: 52px;
-  width: 100%;
-  background-color: #000;
-}
-.responsive-menu .menu ul li {
-  display: block;
-  text-align: left;
-  border-bottom: 1px solid #fff;
-  margin: 0; position:relative; z-index:1; padding: 0px 00px;float:left; width:100%;
-}
-.responsive-menu .menu ul li:last-child {
-  border-bottom: 0;
-}
-.responsive-menu .menu ul li a { color: white;position:relative;}
-.responsive-menu .menu ul li a {
-  color: white; float:left; width:100%;
-  padding: 0px 20px;
-  display: block;
-  -webkit-border-radius: 0;
-  border-radius: 0; position:relative; z-index:1
-}
-.responsive-menu .menu ul li a.current {
-  background-color: #444444;
-}
-.responsive-menu .menu ul li:hover > ul{
- display: inline; position:relative!important; float:left; left:0; top:0;width:100%; z-index:2; 
-}
-.responsive-menu .menu ul li ul {
-  padding: 5px 20px; width:100%;
-}
-.responsive-menu .menu ul li ul li{
-position:relative!important; float:left; top:0;width:100%; left:20px; border-bottom: none !important; text-transform:capitalize im
-; 
-}
-ul li ul li ul li a{ width:100%; margin:0 !important; padding:0 !important; font-size:12px !important; margin-left:30px !important}
-.dropdown-menu{ background:#02a14b;width:100%;}
-ul.dropdown-menu > li{ background:#02a14b;width:100% !important; border-bottom:1px #05ac51 solid}
+
 
 /*------------------------------------------------------
 	Basic Layout Styles 
@@ -375,7 +330,7 @@ ul.dropdown-menu > li{ background:#02a14b;width:100% !important; border-bottom:1
 }
 #products-cata .products-thumb img {
   width: 100%;
-  height:200px;padding:10px 0  
+  /*height:200px;*/padding:10px 0  
 }
 #products-cata .products-thumb img:hover { opacity:0.8
 }
@@ -420,7 +375,46 @@ ul.dropdown-menu > li{ background:#02a14b;width:100% !important; border-bottom:1
 #products-cata .price{ color:#333; font-weight:bold; padding-right:10px; font-size:14px; text-transform:uppercase}
 
 #products-cata .price-off{ color:#333;font-size:14px;font-weight:bold; text-transform:uppercase}
+.mart-t30{ margin-top:30px}
+.mart-t50{ margin-top:50px}
+.sp{ padding-top:15px}
+.detailsp .btn{margin-top:15px;}
+#cart .page-cart nav .previous a, #cart .page-cart nav .next a {
+  background-color: #02a14b;
+  color: #fff;
+  display: inline-block;
+  font-size: 10pt;
+  font-weight: 600;
+  margin:15px 10px;
+  padding-top: 10px;
+  text-transform: uppercase; border: none; border-radius:2px; box-shadow:none !important
+}
+#cart .page-cart table.table tr .boxNumber button.btn {
 
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: #666;
+  border-image-repeat: stretch stretch;
+  border:1px #666 solid;
+
+}
+.input-group {
+  border-collapse: separate;
+  display: table;
+  position: relative;
+}
+.media-left, .media-right, .media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+#cart .page-cart table.table tfoot tr td strong,.lblTotalPrice {
+  color: #ff4c4c; font-weight:bold;
+  font-size: 14pt;
+}
+#thanhtoan input{ width:100%}
+.small-img{ width:100px; float:left}
+#thanhtoan button a{ color:#fff}
+#thanhtoan td{ color:#333}
 /*------------------------------------------------------
 	About Styles 
 --------------------------------------------------------*/
@@ -708,7 +702,7 @@ IPAD PORTRAIT (768x1024)
   }
 
   .main-header {
-    padding: 15px 0;
+    padding: 0px 0;
   }
   .main-header .logo {
     margin-top: 20px;
@@ -780,7 +774,9 @@ IPHONE 4-4S-5 LANDSCAPE (568x320)
   .col-sp{ width:100% !important}
   #products .products-thumb img{ height:auto !important}
 }
-@media (max-width: 760px) {.sort,#dichvu a,.detail{ padding:10px}}
+@media (max-width: 760px) {.sort,#dichvu a,.detail{ padding:10px;}
+div#detail-pro.row{ padding:10px !important; margin:0px !important}}
+}
 @media (max-width: 480px) {
 	.responsive-menu .menu {
     top: 44px; width:120%; margin:0 -20px !important; padding:0 !important

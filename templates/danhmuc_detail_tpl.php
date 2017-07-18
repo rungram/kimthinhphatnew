@@ -1,7 +1,7 @@
 <?php 
             $id =  addslashes($_GET['id']);
 			$d->reset();
-			$sql_tungdanhmuc="select * from #_product where id='$id'";
+			$sql_tungdanhmuc="select * from #_product ";
 			$d->query($sql_tungdanhmuc);	
 			$result_spnam=$d->result_array();	
 			
@@ -14,7 +14,7 @@
 						
 			$curPage = isset($_GET['p']) ? $_GET['p'] : 1;
 			$url=getCurrentPageURL();
-			$maxR=30;
+			$maxR=10;
 			$maxP=5;
 			$paging=paging_home($result_spnam , $url, $curPage, $maxR, $maxP);
 			$result_spnam=$paging['source'];
@@ -23,33 +23,40 @@
 			$total_sp = count($result_spnam);
         ?>
 
-<section>
-    	<div class="container">
-            <div class="col-lg-12">
-            
-              <div class="col-lg-8 col-sm-8 col-md-6 col-xs-12">
-                <h2 class="box-header"><?=$result_laycat["ten_vi"]?></h2>
-                 <div class="panel-group border" id="accordion">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          <h4 class="panel-title">
-             <?=$result_laycat["ten_vi"]?> <i class="fa fa-caret-down" aria-hidden="true"></i>
-          </h4>
-           </a>
+<div id="products-cata" class="section-content">
+  <div class="container">
+    <div class="title-section text-center">
+      <h2>Sản phẩm</h2>
+      <span></span></div>
+    <!-- /.title-section -->
+    <div class="row">
+      <!-- /.col-sp -->
+      <?php
+	for ($i=0;$i<count($result_spnam);$i++)
+	{ 
+	?>
+      <div class="col-sp col-sm-6">
+        <div class="products-thumb"> <img src="upload/sanpham/<?php if($result_spnam[$i]["tc_big"]==1) echo $result_spnam[$i]["photo"]; else echo $result_spnam[$i]["photo"] ?>" alt="<?=$result_spnam[$i]["ten_vi"]?>">
+          <div class="inner">
+            <h4><a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html"><?=$result_spnam[$i]["ten_vi"]?></a></h4>
+            <p><span class="price"><?php echo number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";?></span><br>
+              <span class="price-off"><?php echo number_format ((!empty($result_spnam[$i]['giagiam']))?$result_spnam[$i]['giagiam']:$result_spnam[$i]['gia'],0,",",".")." vnđ";?></span></p>
+          </div>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
-             <?=$result_laycat["mota_vi"]?></div>
-        </div>
+        <!-- /.products-thumb -->
       </div>
-      
-      
+  <?php
+	} 
+	?>
     </div>
-                  
-              </div>
-                <?php include _template."layout/content_right.php"; ?>
-              </div>  
-        </div>
-    </section>
-    <div class=" clearfix"></div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  <hr>
+  <div class="text-center">
+                    <ul class="pagination">
+                          <?=$paging['paging']?></div>
+                     </ul>
+  </div>  
+
+</div>

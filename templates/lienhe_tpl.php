@@ -20,23 +20,23 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
             </div> <!-- /.title-section -->
             <div class="row">
                 <div class="col-md-7 col-sm-6">
-                    <form method="post" name="frm" action="lien-he.html">
+                    <form onsubmit="return alert('Gửi liên hệt thành công');" method="post" name="frm" action="lien-he.html">
                         <div class="contact-form">
                             <p class="full-row">
                                 <label for="name-id">Họ tên:</label>
-                                <input type="text" id="name-id" name="ten">
+                                <input type="text" id="name-id" name="ten" required="required">
                             </p>
                             <p class="full-row">
                                 <label for="email-id">Email:</label>
-                                <input type="text" id="email-id" name="email">
+                                <input type="text" id="email-id" name="email" required="required">
                             </p>
                             <p class="full-row">
                                 <label for="subject-id">Subject:</label>
-                                <input type="text" id="subject-id" name="subject">
+                                <input type="text" id="subject-id" name="subject" required="required">
                             </p>
                             <p class="full-row">
                                 <label for="message">Nội dung:</label>
-                                <textarea name="noidung" id="message" rows="6"></textarea>
+                                <textarea name="noidung" id="message" rows="6" required="required"></textarea>
                             </p>
                             <button type="submit" name="submit" class="mainBtn">Gửi liên hệ</button>
                         </div>

@@ -35,6 +35,9 @@
     	redirect("http://$config_url/gio-hang.html");
 	}
 ?>
+<?php //include _template."layout/header.php"; ?>
+	<?php //include _template.$template."_tpl.php"; ?>
+	<?php //include _template."layout/footer.php"; ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
 <![endif]-->
@@ -42,16 +45,15 @@
 <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/Header-Footer.dwt" codeOutsideHTMLIsLocked="false" -->
- <!--<![endif]-->
+<html lang="en" class="js flexbox rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent"><!-- InstanceBegin template="/Templates/Header-Footer.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
  <base href="http://<?=$config_url?>/"	/>
 <head>
-<!-- InstanceBeginEditable name="doctitle" -->
+
 <title>CÔNG TY TNHH KỸ THUẬT KIM THỊNH PHÁT</title>
-<!-- InstanceEndEditable -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="templatemo">
+    <meta name="author" content="">
 
     <meta charset="UTF-8">
     <!-- CSS Bootstrap & Custom -->
@@ -62,52 +64,51 @@
     <link rel="stylesheet" href="css/templatemo-main.css">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="shortcut icon" href="images/logo.ico">
     <!-- For detail slider have thumb img -->
-    <link href="slider/thumbnail-slider.css" rel="stylesheet" type="text/css" />
-    <link href="slider/ninja-slider.css" rel="stylesheet" type="text/css" />
-    <script src="slider/thumbnail-slider.js" type="text/javascript"></script>
-    <script src="slider/ninja-slider.js" type="text/javascript"></script>
+    <link href="slider/thumbnail-slider.css" rel="stylesheet" type="text/css">
+    <link href="slider/ninja-slider.css" rel="stylesheet" type="text/css">
+    <script src="slider/thumbnail-slider.js" type="text/javascript"></script><style></style>
+    <script src="slider/ninja-slider.js" type="text/javascript"></script><style></style>
 
     <!-- JavaScripts -->
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/modernizr.js"></script>
-    <!-- InstanceBeginEditable name="head" -->
-    <!-- InstanceEndEditable -->
-</head>
-<body>
+    <!-- For Galary  -->
+    <link href="gallery/css.css" rel="stylesheet" type="text/css">
 
-    
-    <?php include _template."layout/header.php"; ?>
+    <!-- For Menus jQuery Bootstrap Addon CSS -->
+    <link href="menu/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+<body>
+<?php include _template."layout/header.php"; ?>
 	<?php include _template.$template."_tpl.php"; ?>
 	<?php include _template."layout/footer.php"; ?>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/jquery.lightbox.js"></script>
     <script src="js/custom.js"></script>
-    <script type="text/javascript">
+    
+    
+    <!--Menu Cript - Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="menu/jquery-1.11.3.min.js"></script>
+    <script src="menu/bootstrap.min.js"></script>
 
-        function initialize() {
-            var mapOptions = {
-                scrollwheel: false,
-                zoom: 15,
-                center: new google.maps.LatLng(13.758468, 100.567481)
-            };
+    <!-- SmartMenus jQuery plugin -->
+    <script type="text/javascript" src="menu/jquery.smartmenus.js"></script>
 
-            var map = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions);
-        }
+    <!-- SmartMenus jQuery Bootstrap Addon -->
+    <script type="text/javascript" src="menu/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
 
-        function loadScript() {
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
-                'callback=initialize';
-            document.body.appendChild(script);
-        }
 
-        window.onload = loadScript;
-    </script>
-
-</body>
-<!-- InstanceEnd --></html>
+<!-- InstanceEnd --><div id="lightbox" style="display:none;"><a href="#" class="lightbox-close lightbox-button"></a><div class="lightbox-nav" style="display: none;"><a href="#" class="lightbox-previous lightbox-button"></a><a href="#" class="lightbox-next lightbox-button"></a></div><div href="#" class="lightbox-caption"><p></p></div></div></body></html>
