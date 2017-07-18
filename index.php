@@ -87,7 +87,21 @@
     <![endif]-->
 
 
-<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+<script language="javascript" type="text/javascript">
+	function addtocart(pid){
+		document.formtruong.productid.value=pid;
+		document.formtruong.command.value='add';
+		document.formtruong.submit();
+	}
+</script>
+
+
+<form name="formtruong" action="index.php">
+	<input type="hidden" name="productid" />
+    <input type="hidden" name="command" />
+</form>
+</head>
 <body>
 <?php include _template."layout/header.php"; ?>
 	<?php include _template.$template."_tpl.php"; ?>

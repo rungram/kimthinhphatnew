@@ -100,8 +100,8 @@ if(isset($_GET['id']))
     <div class="clearfix"></div>
     <div class="button"> 
         <input id="dQy" value="1" min="1" max="1000" type="number"> 
-        <button class="btn btn-primary"> <a class="" style="" href="javascript:;" onclick=""><i class="glyphicon glyphicon-shopping-cart"></i> Đặt hàng </a> </button> 
-        <button class="btn btn-primary"><a href="javascript:;" onclick="return ModelGuide();"><i class="fa fa-align-left"></i> Hướng dẫn mua hàng </a> </button>
+        <button onclick="addtocart(<?=$chitiet_sp['id']?>)" class="btn btn-primary"> <a class="" style="" href="javascript:;" onclick=""><i class="glyphicon glyphicon-shopping-cart"></i> Đặt hàng </a> </button> 
+        <button class="btn btn-primary"><i class="fa fa-align-left"></i> Hướng dẫn mua hàng </button>
     	<div class="clearfix"></div> 
     </div>
     <hr>
@@ -117,7 +117,7 @@ if(isset($_GET['id']))
                       <hr>
 						<?=$chitiet_sp['mota_en']?>
                          <div class="divider text-center">
-                                    	<button class="btn btn-primary"><i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    	<button class="btn btn-primary" onclick="addtocart(<?=$chitiet_sp['id']?>)"><i class="fa fa-caret-right" aria-hidden="true"></i>
  Đặt hàng</button> 
 
                                         <button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>
