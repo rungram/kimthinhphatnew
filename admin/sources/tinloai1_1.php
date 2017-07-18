@@ -218,6 +218,8 @@ function save_item(){
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['ngaytao'] = lay_thoigian();	
 		$data['gioithieu'] = isset($_POST['gioithieu']) ? 1 : 0;
+		$data['tuvan_thietke'] = isset($_POST['tuvan_thietke']) ? 1 : 0;
+		$data['thicong'] = isset($_POST['thicong']) ? 1 : 0;
 		$d->setTable('tinloai1_1');
 		$d->setWhere('id', $id);
 		if($d->update($data))
@@ -246,6 +248,8 @@ function save_item(){
 		$data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
 		$data['ngaytao'] = lay_thoigian();	
 		$data['gioithieu'] = isset($_POST['gioithieu']) ? 1 : 0;
+		$data['tuvan_thietke'] = isset($_POST['tuvan_thietke']) ? 1 : 0;
+		$data['thicong'] = isset($_POST['thicong']) ? 1 : 0;
 		$d->setTable('tinloai1_1');
 		if($d->insert($data))
 		{			

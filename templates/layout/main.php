@@ -21,9 +21,16 @@
 	$result_linhvuc=$d->result_array();
 	
 	$d->reset();
-	$result_detailq="select * from #_tinloai1_1 order by id limit 5";
-	$d->query($result_detailq);
+	$sql_detailq="select * from #_tinloai1_1 where hienthi = 1 order by id limit 5";
+	$d->query($sql_detailq);
 	$result_detailq=$d->result_array();
+	
+	$d->reset();
+	$sql_detaitvtk="select * from #_tinloai1_1 where tuvan_thietke = 1 and hienthi = 1 order by id limit 4";
+	$d->query($sql_detaitvtk);
+	$result_detaitvtk=$d->result_array();
+	
+	
 	$tg=date('Y-m-d H:i:s');
 	$tgout=900;
 	$tgnew=$tg - $tgout;
@@ -104,45 +111,21 @@
           <span></span> </div>
         <!-- /.title-section -->
         <div id="service" class="row">
-          <div class="col-md-3 col-sm-6">
-            <div class="service-item">
-              <div class="service-header"> <a href="chi-tiet.html"><img src="images/1.jpg" alt=""></a>
-                <h3><a href="chi-tiet.html">Hệ thống điện lạnh thương mại dân dụng</a></h3>
-              </div>
-              <div class="service-description"> Chúng tôi chuyên cung cấp dịch vụ sửa chữa, bảo trì, vệ sinh các loại máy móc, sản phẩm điện lạnh tại nhà khu vực nội thành phố HCM </div>
-            </div>
-            <!-- /.service-item -->
-          </div>
-          <!-- /.col-md-3 -->
-          <div class="col-md-3 col-sm-6">
-            <div class="service-item">
-              <div class="service-header"> <a href="chi-tiet.html"><img src="images/2.jpg" alt=""></a>
-                <h3><a href="chi-tiet.html">Hệ thống Tổng Đài IP - Analog</a></h3>
-              </div>
-              <div class="service-description"> Cung cấp tổng đài điện thoại PANASONIC, SIEMENS, LG, IP, Tổng đài Call Center. Giải pháp tổng đài cho Trung Tâm Tư Vấn Khách Hàng, Công ty, Tập Đoàn, Nhà hàng, Khách sạn. </div>
-            </div>
-            <!-- /.service-item -->
-          </div>
-          <!-- /.col-md-3 -->
-          <div class="col-md-3 col-sm-6">
-            <div class="service-item">
-              <div class="service-header"> <a href="chi-tiet.html"><img src="images/3.jpg" alt=""></a>
-                <h3><a href="chi-tiet.html">Hệ thống Camera an ninh IP - Analog</a></h3>
-              </div>
-              <div class="service-description"> Trong xu thế hội nhập hiện nay việc trang bị hệ thống an ninh – an toàn là rất cần thiết, Công ty CÔNG NGHỆ MỚI chúng tôi là một trong những công ty hàng đầu Việt Nam chuyên nhập khẩu, cung cấp, thiết kế,lắp đặt các hệ thống camera </div>
-            </div>
-            <!-- /.service-item -->
-          </div>
-          <!-- /.col-md-3 -->
-          <div class="col-md-3 col-sm-6">
-            <div class="service-item">
-              <div class="service-header"> <a href="chi-tiet.html"><img src="images/4.jpg" alt=""></a>
-                <h3><a href="chi-tiet.html">Hệ thống Báo khói báo cháy</a></h3>
-              </div>
-              <div class="service-description"> Như các bạn đã biết, công tác PCCC đã, đang và sẽ đóng vai trò rất quan trọng trong nhiệm vụ bảo vệ tính mạng và tài sản của người dân cũng như toàn xã hội. Chúng tôi coi đây là sứ mệnh để tạo ra những giá trị mang lại sự bình yên cho cuộc sống. </div>
-            </div>
-            <!-- /.service-item -->
-          </div>
+        <!-- /.title-section -->
+        <?php
+         for($i=0;$i<count($result_detaitvtk);$i++)
+         { 
+         ?>
+                 <div class="col-md-3 col-sm-6">
+                    <div class="service-item">
+                      <div class="service-header"> <a href="tin-tuc-detail/<?=$result_detaitvtk[$i]['tenkhongdau']?>-<?=$result_detaitvtk[$i]['id']?>.html"><img src="upload/tinloai1_1/<?=$result_detaitvtk[$i]['thumb']?>" alt=""></a>
+                        <h3><a href="tin-tuc-detail/<?=$result_detaitvtk[$i]['tenkhongdau']?>-<?=$result_detaitvtk[$i]['id']?>.html"><?=$result_detaitvtk[$i]['ten_vi']?></a></h3>
+                      </div>
+                      <div class="service-description"> <?=$result_detaitvtk[$i]['mota_vi']?></div>
+                    </div>
+                    <!-- /.service-item -->
+                  </div>
+          <?php }?>
           <!-- /.col-md-3 -->
         </div>
         <!-- /.row -->
