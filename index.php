@@ -47,7 +47,7 @@
  <base href="http://<?=$config_url?>/"	/>
 <head>
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Kim Thinh Phat</title>
+<title>CÔNG TY TNHH KỸ THUẬT KIM THỊNH PHÁT</title>
 <!-- InstanceEndEditable -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
