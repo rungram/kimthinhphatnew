@@ -163,16 +163,19 @@
             $gia =  number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
             $giathuc =  ($result_spxemnhieu[$i]['giagiam']!=0)?number_format ($result_spxemnhieu[$i]['giagiam'],0,",",".")." ₫":number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
         ?>
-          <div class="col-sp col-sm-6" style="height: 350px">
-            <div class="products-thumb"> <img src="upload/sanpham/<?php if($result_spxemnhieu[$i]["tc_big"]==1) echo $result_spxemnhieu[$i]["photo"]; else echo $result_spxemnhieu[$i]["photo"] ?>" alt="<?=$result_spxemnhieu[$i]["ten_vi"]?>">
-              <div class="inner">
-                <h4><a data-rel="lightbox" href="chi-tiet-san-pham/<?=$result_spxemnhieu[$i]['tenkhongdau']?>-<?=$result_spxemnhieu[$i]['id']?>.html"><?=$result_spxemnhieu[$i]["ten_vi"]?></a></h4>
-                <p><span class="price"><?= $gia?></span><br>
-                  <span class="price-off"><?= $gia?></span></p>
-              </div>
-            </div>
-            <!-- /.products-thumb -->
-          </div>
+          <div class="col-sp col-sm-6">
+	        <div class="products-thumb">
+	        <a href="chi-tiet-san-pham/<?=$result_spxemnhieu[$i]['tenkhongdau']?>-<?=$result_spxemnhieu[$i]['id']?>.html">
+	        <img src="upload/sanpham/<?php if($result_spxemnhieu[$i]["tc_big"]==1) echo $result_spxemnhieu[$i]["photo"]; else echo $result_spxemnhieu[$i]["photo"] ?>" alt="<?=$result_spxemnhieu[$i]["ten_vi"]?>">
+	        </a>
+	          <div class="inner">
+	            <h4><a href="chi-tiet-san-pham/<?=$result_spxemnhieu[$i]['tenkhongdau']?>-<?=$result_spxemnhieu[$i]['id']?>.html"><?=$result_spxemnhieu[$i]["ten_vi"]?></a></h4>
+	            <p><span class="price"><?= $gia?></span><br>
+	              <span class="price-off"><?= $gia?></span></p>
+	          </div>
+	        </div>
+	        <!-- /.products-thumb -->
+	      </div>
       <?php
 		} 
 		?>
