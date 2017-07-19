@@ -12,7 +12,7 @@
 
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav" data-smartmenus-id="15003596183227795">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Trang chủ</a></li>
         <li><a href="gioi-thieu.html">Giới thiệu</a></li>
         <li class="">
             <a href="danh-muc/san-pham-1.html" class="has-submenu" id="sm-15003598033380005-1" aria-haspopup="true" aria-controls="sm-15003598033380005-2" aria-expanded="false">Sản phẩm <span class="caret"></span></a>
