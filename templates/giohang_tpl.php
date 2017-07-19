@@ -145,8 +145,12 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
              <nav> 
              <ul class="pager"> 
                  <li class="previous"><a href="san-pham.html"><span aria-hidden="true">←</span> Tiếp tục mua hàng</a></li>  
+                 <?php if(count($_SESSION['cart'])>0)
+                     {?>
                  <li class="next"><a href="thanh-toan.html"> Thanh toán <span aria-hidden="true">→</span></a></li>  
                  <li class="next"><a href="javascript:;" onclick="return UpdateCart();"> <i class="fa fa-save"></i> Cập nhật giỏ hàng</a></li>  
+                 <?php }?>
+                 
              </ul> 
              </nav>  
              <span style="font-size:16px;"></span> 

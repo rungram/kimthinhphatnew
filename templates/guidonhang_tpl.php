@@ -144,7 +144,7 @@ include_once "phpmailer/class.smtp.php";
 //Khởi tạo đối tượng
 $subject = "Thông tin đơn hàng.";
 //$from = "shopnana.info@gmail.com";
-$from = "homedecor.info.vn@gmail.com";
+$from = "ctykythuatkimthinhphat@gmail.com";
 $from_name = $tennguoidat;
 
 $to = $email;
@@ -161,9 +161,9 @@ $mail->SMTPSecure = 'ssl'; // sử dụng giao thức SSL vì gmail bắt buộc
 
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465; 
-$mail->Username = "homedecor.info.vn@gmail.com";  
-$mail->Password = "Duy1033202";           
-$mail->SetFrom($from, 'Công Ty CP Kiến Trúc Xây Dựng Home Decor');
+$mail->Username = "ctykythuatkimthinhphat@gmail.com";  
+$mail->Password = "Kimthinhphat";           
+$mail->SetFrom($from, 'CÔNG TY TNHH KỸ THUẬT KIM THỊNH PHÁT');
 $mail->From = $from;		
 
 $mail->Subject = $subject;

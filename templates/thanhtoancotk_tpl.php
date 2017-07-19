@@ -23,55 +23,34 @@
       <span></span>
     </div>
     <!-- /.title-section -->	
-	<div class="row mart-t50">
+    <form method="post" name="frm" action="gui-don-hang.html" enctype="multipart/form-data">
+	   <div class="row mart-t50">
+	
                 <div class="col-md-6 col-sm-6">
                     <div class="contact-form">
                         <p class="full-row">
-                            <label class="col-lg-4" for="name-id">Họ tên:</label>
-                            <span class="col-lg-8 form-group"><input type="text" id="name-id" name="hoten2"></span>
+                            <label class="col-lg-4" for="name-id">Họ tên (*):</label>
+                            <span class="col-lg-8 form-group"><input type="text" id="name-id" name="hoten2" required="required"></span>
                         </p>
                         <p class="full-row">
-                            <label class="col-lg-4" for="email-id">Email:</label>
-                            <span class="col-lg-8 form-group"><input type="text" id="email-id" name="email"></span>
+                            <label class="col-lg-4" for="email-id">Email (*):</label>
+                            <span class="col-lg-8 form-group"><input type="text" id="email-id" name="email" required="required"></span>
                         </p>
                         <p class="full-row">
                             <label class="col-lg-4" for="subject-id">Điện thoại (*):</label>
-                            <span class="col-lg-8 form-group"><input type="text" id="subject-id" name="dienthoai"></span>
+                            <span class="col-lg-8 form-group"><input type="text" id="subject-id" name="dienthoai" required="required"></span>
                         </p>
                         <p class="full-row">
                             <label class="col-lg-4" for="message">Địa chỉ giao hàng (*):</label>
-                             <span class="col-lg-8 form-group"><input type="text" id="add-id" name="diachi"></span>
+                             <span class="col-lg-8 form-group"><input type="text" id="add-id" name="diachi" required="required"></span>
                         </p>
                         <p class="full-row">
-                        	<label class="col-lg-4">Tỉnh/ Thành phố</label>
-                      </p><div class="col-lg-8 form-group">
-                                <div>
-                                	<select id="District" class="form-control" data-val="true" data-val-number="The field District must be a number." name="District" placeholder="Quận/huyện *">
-                                        <option value="">-- vui lòng chọn quận/huyện --</option>
-                                        <option value="240">HUYỆN BẢO LẠC</option>
-                                        <option value="241">HUYỆN BẢO LÂM</option>
-                                        <option value="242">HUYỆN HẠ LANG</option>
-                                        <option value="243">HUYỆN HÀ QUẢNG</option>
-                                     </select>
-                                </div>
-                            </div>
-                        <p></p>
-                        <p class="full-row">
-                        	<label class="col-lg-4">Quận/ Huyện</label>
-                      </p><div class="col-lg-8 form-group">
-                                <div>
-                                	<select id="District" class="form-control" data-val="true" data-val-number="The field District must be a number." name="District" placeholder="Quận/huyện *">
-                                        <option value="">-- vui lòng chọn quận/huyện --</option>
-                                        <option value="240">HUYỆN BẢO LẠC</option>
-                                        <option value="241">HUYỆN BẢO LÂM</option>
-                                        <option value="242">HUYỆN HẠ LANG</option>
-                                        <option value="243">HUYỆN HÀ QUẢNG</option>
-                                  </select>
-                                </div>
-                            </div>
-                        <p></p>
+                            <label class="col-lg-4" for="message">Ghi chú</label>
+                             <span class="col-lg-8 form-group"><textarea style="width: 100%;" name="noidung" type="text" id="add-id" ></textarea></span>
+                        </p>
                     </div>
                 </div> <!-- /.col-md-6 -->
+           
                 <div class="col-md-6 col-sm-6">
                 	<div class="table-responsive" id="no-more-tables"> 
                         <table class="table table-hover table-vcenter table-bordered"> 
@@ -139,4 +118,5 @@
                     <button class="btn btn-primary"> <a><i class="glyphicon glyphicon-shopping-cart"></i> Đặt hàng </a> </button>
                 </div> <!-- /.col-md-6 -->
             </div>	
+         </form>
 </div>

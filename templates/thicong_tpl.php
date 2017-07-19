@@ -1,13 +1,13 @@
 <?php 
 
 			$d->reset();
-			$sql_tinl="select * from #_tinloai1_1 where hienthi =1 order by id desc limit 1";
+			$sql_tinl="select * from #_tinloai1_1 where thicong=1 and hienthi =1 order by id desc limit 1";
 			$d->query($sql_tinl);	
 		    $result_detail=$d->fetch_array();
 
 		    $id = $result_detail["id"];
 			$d->reset();
-    		$result_detailq="select * from #_tinloai1_1 where hienthi =1 and id<>'$id'";
+    		$result_detailq="select * from #_tinloai1_1 where thicong=1 and hienthi =1 and id<>'$id'";
     		$d->query($result_detailq); 
     		$result_detailq=$d->result_array();
 
@@ -20,9 +20,11 @@
 ?>
 <div id="news" class="section-content">
     <div class="title-section text-center">
-      <h2>Tin tức</h2>
+      <h2>Thi công</h2>
       <span></span></div>
     <!-- /.title-section -->
+    <?php if(!empty($result_detail))
+    {?>
     <div id="moinhat" class="moinhat">
       <div class="container">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><a href="tin-tuc-detail/<?=$result_detail['tenkhongdau']?>-<?=$result_detail['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detail['thumb']?>" class="img-responsive" alt="Image"></a></div>
@@ -35,6 +37,7 @@
       </div>
       <!-- /.team-member -->
     </div>
+    <?php }?>
     <!-- /.col-md-6 -->
     <div class="container">
        <?php
