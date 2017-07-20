@@ -8,12 +8,18 @@
 	$sql_list ="select *	from #_tinloai1_1_list where hienthi=1 and dichvu=1 order by stt asc limit 0,8";
 	$d->query($sql_list);
 	$list_dichvu =$d->result_array();
+	
+	$d->reset();
+	$sql_gioithieu="select * from #_gioithieu  where hienthi=1 order by id desc limit 1";
+	$d->query($sql_gioithieu);
+	$result_gioithieu=$d->fetch_array();
+	$id_gioithieu = $result_gioithieu["id"];
 ?>
 
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav" data-smartmenus-id="15003596183227795">
         <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+        <li><a href="gioi-thieu/gioi-thieu-<?=$id_gioithieu?>.html">Giới thiệu</a></li>
         <li class="">
             <a href="danh-muc/san-pham-1.html" class="has-submenu" id="sm-15003598033380005-1" aria-haspopup="true" aria-controls="sm-15003598033380005-2" aria-expanded="false">Sản phẩm <span class="caret"></span></a>
             <ul class="dropdown-menu sm-nowrap" id="sm-15003598033380005-2" role="group" aria-hidden="true" aria-labelledby="sm-15003598033380005-1" aria-expanded="false" style="width: auto; display: none; top: auto; left: 0px; margin-left: 0px; margin-top: 0px; min-width: 10em; max-width: 20em;">
@@ -88,6 +94,6 @@
         <li><a href="thi-cong.html">Thi Công</a></li>
         <li><a href="tin-tuc.html">Tin tức & Sự kiện</a></li>
         <li><a href="lien-he.html">Liên hệ</a></li>
-        <li><a href="gio-hang.html"><i class="fa fa-shopping-cart"></i> [3]</a></li>
+        <li><a href="gio-hang.html"><i class="fa fa-shopping-cart"></i> [<?=count($_SESSION['cart'])?>]</a></li>
     </ul>
 </div> <!-- /.menu -->

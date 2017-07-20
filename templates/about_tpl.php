@@ -3,20 +3,20 @@
 		$id =	addslashes($_GET['id']);
 		
 		$d->reset();
-		$sql_tanglx="update	#_tinloai1_1 set luotxem=luotxem+1 where id='$id'";
-		$d->query($sql_tanglx);
-		$result_detail="select * from #_tinloai1_1 where gioithieu = 1 order by stt desc limit 1";
+// 		$sql_tanglx="update	#_tinloai1_1 set luotxem=luotxem+1 where id='$id'";
+// 		$d->query($sql_tanglx);
+		$result_detail="select * from #_gioithieu  where id='$id' order by stt desc limit 1";
 		$d->query($result_detail);	
 		$result_detail=$d->fetch_array();
+		//$id = $result_detail["id"];
 
-
-		$sql_tinll="select * from #_tinloai1_1_list where hienthi =1 order by stt asc";
+		$sql_tinll="select * from #_gioithieu where hienthi =1 order by stt asc";
 		$d->query($sql_tinll);	
 		$result_detaill=$d->result_array(); 
 		
 		
 		$d->reset();
-		$result_detailq="select * from #_tinloai1_1 where	id<>'$id'";
+		$result_detailq="select * from #_gioithieu where hienthi =1 and	id<>'$id'";
 		$d->query($result_detailq); 
 		$result_detailq=$d->result_array();
 		$curPage = isset($_GET['p']) ? $_GET['p'] : 1;
@@ -28,14 +28,12 @@
 ?>
 <div id="gioithieu" class="section-content">
      <div class="title-section text-center">
-      <h2>Tin tức</h2>
+      <h2>Giới Thiệu</h2>
       <span></span>
      </div>
     <!-- /.title-section -->
     <div class="container">
       <div class="detail">
-              <h3><a href="chi-tiet.html"><?=$result_detail["ten_vi"]?></a></h3>
-              <p class="child"><?=$result_detail["ngaytao"]?></p>
               <hr>
               <div class="para">
                 <?=$result_detail["noidung_vi"]?>
@@ -55,14 +53,20 @@
      <?php
          for($i=0;$i<count($result_detailq);$i++)
          { 
+             $Summary = $result_detailq[$i]['noidung_vi'];
+             if(strlen ($Summary) > 300)
+             {
+                 $Summary = substr ($Summary, 0, 300);
+                 $Summary = substr ($Summary, 0, strrpos ($Summary, ' ')).'...';
+             }
          ?>
          <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="media">
-            <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news" alt="Image"></a></div>
+            <div class=" pull-left"></div>
             <div class="  media-body">
-              <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
-              <p class="sort">Vệ sinh máy giặt không chỉ giúp cho máy làm việc hiệu quả, tăng tuổi thọ mà còn... </p>
-              <p><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
+              <h3 class="heading"><a href="gioi-thieu/gioi-thieu-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
+              <p class="sort"><?=$Summary?> </p>
+              <p><a href="gioi-thieu/gioi-thieu-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
             </div>
           </div>
           <?php 
@@ -71,11 +75,11 @@
                 {
           ?>
             <div class="media">
-            <div class=" pull-left"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"> <img src="upload/tinloai1_1/<?=$result_detailq[$i]['thumb']?>" class="img-responsive img_news" alt="Image"></a></div>
+            <div class=" pull-left"></div>
             <div class="  media-body">
-              <h3 class="heading"><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
-              <p class="sort">Vệ sinh máy giặt không chỉ giúp cho máy làm việc hiệu quả, tăng tuổi thọ mà còn... </p>
-              <p><a href="tin-tuc-detail/<?=$result_detailq[$i]['tenkhongdau']?>-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
+              <h3 class="heading"><a href="gioi-thieu/gioi-thieu-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
+              <p class="sort"><?=$Summary?></p>
+              <p><a href="gioi-thieu/gioi-thieu-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
             </div>
           </div>
               

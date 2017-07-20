@@ -18,7 +18,7 @@
            <li><a href="index.php?com=tinloai1_1&act=man_list">Tin tức cấp 1</a></li>			
            <li><a href="index.php?com=tinloai1_1&act=man_cat">Tin tức cấp 2</a></li>	
            <li><a href="index.php?com=tinloai1_1&act=man">Tin tức</a></li>	
-           <li><a href="index.php?com=about&act=capnhat">Quản lý giới thiệu</a></li>
+           <li><a href="index.php?com=about&act=man_list">Quản lý giới thiệu</a></li>
            <li><a href="index.php?com=tinloai2_1&act=man">Quản lý tuyển dụng</a></li>
            <li><a href="index.php?com=tinloai1_3&act=man">Thông tin chung footer</a></li>
            <li><a href="index.php?com=lienhe&act=capnhat">Quản lý liên hệ</a></li>

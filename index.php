@@ -89,8 +89,9 @@
 
 <style type="text/css">.fancybox-margin{margin-right:17px;}</style>
 <script language="javascript" type="text/javascript">
-	function addtocart(pid){
+	function addtocart(pid,quality){
 		document.formtruong.productid.value=pid;
+		document.formtruong.quality.value=quality;
 		document.formtruong.command.value='add';
 		document.formtruong.submit();
 	}
@@ -99,6 +100,7 @@
 
 <form name="formtruong" action="index.php">
 	<input type="hidden" name="productid" />
+	<input type="hidden" name="quality" />
     <input type="hidden" name="command" />
 </form>
 </head>

@@ -99,8 +99,8 @@ if(isset($_GET['id']))
     </h4>
     <div class="clearfix"></div>
     <div class="button"> 
-        <input id="dQy" value="1" min="1" max="1000" type="number"> 
-        <button onclick="addtocart(<?=$chitiet_sp['id']?>)" class="btn btn-primary"> <a class="" style="" href="javascript:;" onclick=""><i class="glyphicon glyphicon-shopping-cart"></i> Đặt hàng </a> </button> 
+        <input id="quality" onchange="changesl(this.value)" value="1" min="1" max="1000" type="number"> 
+        <button id="dathang" onclick="addtocart(<?=$chitiet_sp['id']?>,this.value)" value="1" class="btn btn-primary"> <a class="" style="" href="javascript:;" onclick=""><i class="glyphicon glyphicon-shopping-cart"></i> Đặt hàng </a> </button> 
         <button class="btn btn-primary"><i class="fa fa-align-left"></i> Hướng dẫn mua hàng </button>
     	<div class="clearfix"></div> 
     </div>
@@ -124,3 +124,8 @@ if(isset($_GET['id']))
  Liên hệ</button> 
                         </div>
 </div>
+<script language="javascript" type="text/javascript">
+	function changesl(quality){
+		$("#dathang").val(quality);
+	}
+</script>

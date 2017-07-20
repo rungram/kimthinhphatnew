@@ -30,6 +30,18 @@
 	$d->query($sql_detaitvtk);
 	$result_detaitvtk=$d->result_array();
 	
+	$d->reset();
+	$sql_gioithieu="select * from #_gioithieu  where hienthi=1 order by id desc limit 1";
+	$d->query($sql_gioithieu);
+	$result_gioithieu=$d->fetch_array();
+	$mota_gioithieu = $result_gioithieu["noidung_vi"];
+	$id_gioithieu = $result_gioithieu["id"];
+	$Summary = $mota_gioithieu;
+	if(strlen ($Summary) > 300)
+	{
+	    $Summary = substr ($Summary, 0, 300);
+	    $Summary = substr ($Summary, 0, strrpos ($Summary, ' ')).'...';
+	}
 	
 	$tg=date('Y-m-d H:i:s');
 	$tgout=900;
@@ -177,9 +189,7 @@
         <!-- /.title-section -->
         <div class="row">
           <div class="col-md-8">
-            <p> Nhu cầu đời sống của người dân đươc nâng cao, đa số nhà nào cũng có máy lạnh, và đương nhiên chuyện thỉnh thoảng máy gặp sự cố là không tránh khỏi.
-              Bạn không thể ngồi chờ đợi trong sự nóng nực, bạn muốn có người giải quyết vấn đề đó ngay cho bạn
-              Hãy để chúng tôi giúp bạn. <a href="#">Xem thêm .. <i class="ti-angle-right"></i></a> </p>
+            <p><?=$Summary?> <a href="gioi-thieu/gioi-thieu-<?=$id_gioithieu?>.html">Xem thêm <i class="ti-angle-right"></i></a> </p>
             <div id="why" class="row alert-warning">
               <h4 class="widget-title">Vì sao nên chọn chúng tôi?</h4>
               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 service-item">
