@@ -39,6 +39,7 @@ if(isset($_GET['id']))
 	$result_spkhac=$d->result_array();
 		
 	$url=getCurrentPageURL();
+	
 }
 ?>
 
@@ -67,18 +68,60 @@ if(isset($_GET['id']))
 				$sql_cungmauc = "select thumb,photo from #_hinh_cungsp where id_sp='$id' and chon_mau='$mau_chinh'";
 				$d->query($sql_cungmauc);
 				$result_cungmauc = $d->result_array();
+				
 				?>
 <div id="detail-pro" class="row">
 	<div class="col-lg-6">
         <div id="ninja-slider">
           <div>
             <div class="slider-inner">
-              <ul style="overflow: hidden; padding-top: 50%; height: 0px;"><li class="" style="left: 0px; z-index: 0;"><a class="ns-img" href="upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>" style="background-image: url(&quot;file:///upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l2.jpg" style="background-image: url(&quot;images/l2.jpg&quot;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l3.jpg" style="background-image: url(&quot;images/l3.jpg&quot;);"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l4.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l5.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l6.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l7.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l8.jpg"></a></li><li class="" style="z-index: -1;"><a class="ns-img" href="images/l9.jpg" style="background-image: url(&quot;images/l9.jpg&quot;);"></a></li><li class="ns-show" style="z-index: 1; left: 0px;"><a class="ns-img" href="images/l10.jpg" style="background-image: url(&quot;images/l10.jpg&quot;);"></a></li></ul>
+              <ul style="overflow: hidden; padding-top: 50%; height: 0px;"><li class="" style="left: 0px; z-index: 0;"><a class="ns-img" href="upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>" style="background-image: url(&quot;file:///upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>;);"></a></li>
+              <?php
+              $d->reset();
+              $sql_hinhanh="select * from #_hinhanh_thucte where hienthi =1 and id_sp='$id'";
+              $d->query($sql_hinhanh);
+              $result_hinhanh=$d->result_array();
+
+              for ($i=0;$i<count($result_hinhanh);$i++)
+              {
+              ?>
+                  <li class="" style="z-index: -1;"><a class="ns-img" href="upload/hinhanh_thucte/<?=$result_hinhanh[$i]["photo"]?>"></a></li>
+              <?php
+              }
+              ?>
+              </ul>
               <div class="fs-icon-room" title="Expand/Close"></div>
-            <div id="ninja-slider-pager"><a rel="0" class="">1</a><a rel="1" class="">2</a><a rel="2" class="">3</a><a rel="3" class="">4</a><a rel="4" class="">5</a><a rel="5" class="">6</a><a rel="6" class="">7</a><a rel="7" class="">8</a><a rel="8" class="">9</a><a rel="9" class="active">10</a></div><div id="ninja-slider-prev"><div>10 ∕ 10</div></div><div id="ninja-slider-next"><div>10 ∕ 10</div></div><div id="ninja-slider-pause-play"></div></div>
+            <div id="ninja-slider-pager">
+                <a rel="1" class="">1</a>
+                <?php
+                for ($i=2;$i<count($result_hinhanh)-1;$i++)
+                {
+                ?>
+                  <a rel="<?=$i?>"><?=$i?></a>
+                <?php
+                }
+                ?>
+                <a rel="<?=count($result_hinhanh)?>" class="active"><?=count($result_hinhanh)?></a>
+            </div><div id="ninja-slider-prev"><div>10 ∕ 10</div></div><div id="ninja-slider-next"><div>10 ∕ 10</div></div><div id="ninja-slider-pause-play"></div></div>
             <div id="thumbnail-slider">
               <div class="inner">
-                <ul style="touch-action: pan-y; transition-property: transform; transition-timing-function: cubic-bezier(0.2, 0.88, 0.5, 1); transition-duration: 0ms; transform: translateX(-96px);"><li style="display: inline-block; height: 50px; width: 100px; z-index: 0;" class=""> <a class="thumb" href="images/l7.jpg" style="background-image: url(&quot;images/l7.jpg&quot;); cursor: pointer;"></a> <span>6</span></li><li class="" style="display: inline-block; height: 50px; width: 101.394px; z-index: 0;"> <a class="thumb" href="images/l8.jpg" style="background-image: url(&quot;images/l8.jpg&quot;); cursor: pointer;"></a> <span>7</span></li><li class="" style="display: inline-block; height: 50px; width: 88.8551px; z-index: 0;"> <a class="thumb" href="images/l9.jpg" style="background-image: url(&quot;images/l9.jpg&quot;); cursor: pointer;"></a> <span>8</span></li><li class="active" style="display: inline-block; height: 50px; width: 123.077px; z-index: 1;"> <a class="thumb" href="images/l10.jpg" style="background-image: url(&quot;images/l10.jpg&quot;); cursor: pointer;"></a> <span>9</span></li><li class="" style="display: inline-block; height: 50px; width: 101.394px; z-index: 0;"> <a class="thumb" href="images/l1.jpg" style="background-image: url(&quot;images/l1.jpg&quot;); cursor: pointer;"></a> <span>0</span></li><li class="" style="display: inline-block; height: 50px; width: 117.073px; z-index: 0;"> <a class="thumb" href="images/l2.jpg" style="background-image: url(&quot;images/l2.jpg&quot;); cursor: pointer;"></a> <span>1</span></li><li class="" style="display: inline-block; height: 50px; width: 174.545px; z-index: 0;"> <a class="thumb" href="images/l3.jpg" style="background-image: url(&quot;images/l3.jpg&quot;); cursor: pointer;"></a> <span>2</span></li><li class="" style="display: inline-block; height: 50px; width: 100px; z-index: 0;"> <a class="thumb" href="images/l4.jpg" style="background-image: url(&quot;images/l4.jpg&quot;); cursor: pointer;"></a> <span>3</span></li><li style="display: inline-block; height: 50px; width: 126.667px; z-index: 0;" class=""> <a class="thumb" href="images/l5.jpg" style="background-image: url(&quot;images/l5.jpg&quot;); cursor: pointer;"></a> <span>4</span></li><li style="display: inline-block; z-index: 0; height: 50px; width: 103.293px;" class=""> <a class="thumb" href="images/l6.jpg" style="background-image: url(&quot;images/l6.jpg&quot;); cursor: pointer;"></a> <span>5</span></li></ul>
+                <ul style="touch-action: pan-y; transition-property: transform; transition-timing-function: cubic-bezier(0.2, 0.88, 0.5, 1); transition-duration: 0ms; transform: translateX(-96px);">
+                    <li style="display: inline-block; height: 50px; width: 100px; z-index: 0;" class=""> 
+                        <a class="thumb" href="upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>" style="background-image: url(&quot;file:///upload/sanpham/<?php if($chitiet_sp["tc_big"]==1) echo $chitiet_sp["photo"]; else echo $chitiet_sp["photo"] ?>;);"></a> 
+                        <span>1</span>
+                    </li>
+                    <?php
+                    for ($i=0;$i<count($result_hinhanh)-1;$i++)
+                    {
+                    ?>
+                      <li class="" style="display: inline-block; height: 50px; width: 101.394px; z-index: 0;"> 
+                        <a class="thumb" href="upload/hinhanh_thucte/<?=$result_hinhanh[$i]["photo"]?>" style="background-image: url(&quot;file:///upload/hinhanh_thucte/<?=$result_hinhanh[$i]["photo"]?>&quot;); cursor: pointer;"></a> 
+                        <span><?=$i+2?></span>
+                      </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
               </div>
             <div id="thumbnail-slider-prev"></div><div id="thumbnail-slider-next"></div><div id="thumbnail-slider-pause-play"></div></div>
           </div>
@@ -117,11 +160,11 @@ if(isset($_GET['id']))
                       <hr>
 						<?=$chitiet_sp['mota_en']?>
                          <div class="divider text-center">
-                                    	<button class="btn btn-primary" onclick="addtocart(<?=$chitiet_sp['id']?>)"><i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    	<button class="btn btn-primary" onclick="addtocart(<?=$chitiet_sp['id']?>,1)"><i class="fa fa-caret-right" aria-hidden="true"></i>
  Đặt hàng</button> 
 
-                                        <button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>
- Liên hệ</button> 
+                                        <a class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>
+ Liên hệ</a> 
                         </div>
 </div>
 <script language="javascript" type="text/javascript">

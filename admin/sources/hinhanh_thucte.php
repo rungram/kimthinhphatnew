@@ -87,7 +87,7 @@ function save_photo(){
 	$file_name=fns_Rand_digit(0,9,15);
 	if(empty($_POST)) transfer("Không nhận được dữ liệu", "index.php?com=hinhanh_thucte&act=man_photo");
 	$id = isset($_POST['id']) ? themdau($_POST['id']) : "";
-	if($id){
+	if(!empty($id)){
 			if($photo = upload_image("file", 'Jpg|jpg|png|gif|JPG|jpeg|JPEG', _upload_hinhanh_thucte,$file_name)){
 				$data['photo']  = $photo;
 				$data['thumb']  = create_thumb($data['photo'],700,420, _upload_hinhanh_thucte,$file_name,2);	
@@ -112,8 +112,9 @@ function save_photo(){
 			
 	}
 	
-	
-	{ 			for($i=1; $i<=5; $i++){
+	else
+	{ 			
+	       for($i=1; $i<=5; $i++){
 				if($data['photo'] = upload_image("file".$i, 'Jpg|jpg|png|gif|JPG|jpeg|JPEG', _upload_hinhanh_thucte,$file_name.$i))
 					{						
 						$data['thumb'] = create_thumb($data['photo'], 700,420, _upload_hinhanh_thucte,$file_name.$i,2);		

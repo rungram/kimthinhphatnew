@@ -67,7 +67,8 @@ height:"350px",
   
      
     
-	
+	<b>Trang chủ</b> <input type="checkbox" name="trangchu" <?=(!isset($item['trangchu']) || $item['trangchu']==1)?'checked="checked"':''?>><br /> 
+	<b>Trang con</b> <input type="checkbox" name="trangcon" <?=(!isset($item['trangcon']) || $item['trangcon']==1)?'checked="checked"':''?>><br /> 
 	
 	<input type="hidden" name="id" id="id" value="<?=@$item['id']?>" />
 	<input type="submit" value="Lưu" class="btn" />

@@ -102,7 +102,8 @@ function save_gioithieu(){
     	$data['noidung_vi'] = $_POST['noidung_vi'];
     	$data['noidung_en'] = $_POST['noidung_en'];
     	$data['noidung_cn'] = $_POST['noidung_cn'];
-    	
+    	$data['trangchu'] = isset($_POST['trangchu']) ? 1 : 0;
+    	$data['trangcon'] = isset($_POST['trangcon']) ? 1 : 0;
     	$d->reset();
     	$d->setTable('gioithieu');
     	if($d->update($data))
@@ -128,7 +129,8 @@ function save_gioithieu(){
 	    $data['noidung_vi'] = $_POST['noidung_vi'];
 	    $data['noidung_en'] = $_POST['noidung_en'];
 	    $data['noidung_cn'] = $_POST['noidung_cn'];
-	     
+	    $data['trangchu'] = isset($_POST['trangchu']) ? 1 : 0;
+	    $data['trangcon'] = isset($_POST['trangcon']) ? 1 : 0;
 	    $d->reset();
 	    $d->setTable('gioithieu');
 	    if($d->insert($data))

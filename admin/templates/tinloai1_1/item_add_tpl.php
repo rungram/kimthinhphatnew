@@ -146,7 +146,7 @@ function get_main_cat()
     <b>Số thứ tự</b> <input type="text" name="stt" value="<?=isset($item['stt'])?$item['stt']:1?>" style="width:30px"><br>
     <br />  
    	<b>Hiển thị</b> <input type="checkbox" name="hienthi" <?=(!isset($item['hienthi']) || $item['hienthi']==1)?'checked="checked"':''?>><br /> 
-	<b>Giới thiệu</b> <input type="checkbox" name="gioithieu" <?=(!isset($item['gioithieu']) || $item['gioithieu']==1)?'checked="checked"':''?>><br /> 
+	
 	<b>Tư vấn - Thiết Kế</b> <input type="checkbox" name="tuvan_thietke" <?=($item['tuvan_thietke']==1)?'checked="checked"':''?>><br /> 
 	<b>Thi công</b> <input type="checkbox" name="thicong" <?=($item['thicong']==1)?'checked="checked"':''?>><br /> 
 	<input type="hidden" name="id" id="id" value="<?=@$item['id']?>" />
