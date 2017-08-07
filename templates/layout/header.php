@@ -25,7 +25,7 @@
                 <div class="info_cty text-center">
                   <h1>CÔNG TY TNHH KỸ THUẬT KIM THỊNH PHÁT</h1>
                   <h2>ĐIỆN LẠNH - CAMERA - BÁO KHÓI</h2>
-                  <h2>MST: 0313 410 300 - Email: kimthinhphat@gmail.com</h2>
+                  <h2>MST: 0313 410 300 - Email: kimthinhphatt@gmail.com</h2>
                   <h3>Địa chỉ: 53 C Ung Văn Khiêm, Phường 25, Quận Bình Thạnh, TP. Hồ Chí Minh</h3>
                 </div>
                 <!-- /.logo -->

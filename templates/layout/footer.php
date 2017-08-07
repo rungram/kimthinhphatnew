@@ -17,7 +17,7 @@
 
                     <h3>CÔNG TY TNHH KỸ THUẬT KIM THỊNH PHÁT</h3>
                     <address>
-                        <p><strong>MST:</strong> 0313 410 300 - Email: kimthinhphat@gmail.com</p>
+                        <p><strong>MST:</strong> 0313 410 300 - Email: kimthinhphatt@gmail.com</p>
                         <p><strong>Địa chỉ:</strong> 53 C Ung Văn Khiêm, Phường 25, Quận Bình Thạnh, TP. HCM</p>
                         <p><strong>HOTLINE:</strong> 0909.28.84.86 - 0909.01.84.86 - 0903.61.82.89 - 0902.41.37.39</p>
 
