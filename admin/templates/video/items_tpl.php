@@ -1,4 +1,4 @@
-<h3><a href="index.php?com=video&act=add">Thêm mới liên kết</a></h3>
+<h3></h3>
 
 <table class="blue_table">
 	<tr>

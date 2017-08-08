@@ -8,6 +8,15 @@
 	$sql_tin_l ="select *	from #_tinloai1_1_list order by stt asc limit 0,3";
 	$d->query($sql_tin_l);
 	$tin_l=$d->result_array();
+	
+	$d->reset();
+	$sql_face ="select * from #_nhung_face limit 1";
+	$d->query($sql_face);
+	$lienket=$d->fetch_array();
+	$facebook = $lienket['facebook'];
+	$twinter = $lienket['twinter'];
+	$google = $lienket['google'];
+	$youtube = $lienket['youtube'];
 ?>
 <?php //include _template."layout/menu_top.php"; ?>
 <div id="home">
@@ -38,10 +47,10 @@
           <div class="col-md-4 col-sm-4">
             <div class="right-header text-right">
               <ul class="social-icons">
-                <li><a href="#" class="fa fa-facebook"></a></li>
-                <li><a href="#" class="fa fa-instagram"></a></li>
-                <li><a href="#" class="fa fa-twitter"></a></li>
-                <li><a href="#" class="fa fa-google-plus"></a></li>
+                <li><a target="_blank" href="<?=$facebook?>" class="fa fa-facebook"></a></li>
+                <li><a target="_blank" href="<?=$twinter?>" class="fa fa-instagram"></a></li>
+                <li><a target="_blank" href="<?=$google?>" class="fa fa-twitter"></a></li>
+                <li><a target="_blank" href="<?=$youtube?>" class="fa fa-google-plus"></a></li>
               </ul>
               <span class="hotline"><i class="fa fa-phone"></i>HOTLINE <br>
                 PKD: 0909.28.84.86 - 0909.01.84.86 <br>

@@ -8,6 +8,15 @@
 	$sql_list ="select *	from #_product_list where hienthi=1 order by stt asc limit 0,8";
 	$d->query($sql_list);
 	$list =$d->result_array();
+	
+	$d->reset();
+	$sql_face ="select * from #_nhung_face limit 1";
+	$d->query($sql_face);
+	$lienket=$d->fetch_array();
+	$facebook = $lienket['facebook'];
+	$twinter = $lienket['twinter'];
+	$google = $lienket['google'];
+	$youtube = $lienket['youtube'];
 ?>
 
     <div class="site-footer">
@@ -25,10 +34,10 @@
                     <div class="clearfix"></div>
                     <div class="sf">
                         <h3>Social</h3>
-                        <a href="#"><img src="images/f.png" alt=""></a>
-                        <a href="#"><img src="images/g.png" alt=""></a>
-                        <a href="#"><img src="images/t.png" alt=""></a>
-                        <a href="#"><img src="images/y.png" alt=""></a>
+                        <a target="_blank" href="<?=$facebook?>"><img src="images/f.png" alt=""></a>
+                        <a target="_blank" href="<?=$twinter?>"><img src="images/g.png" alt=""></a>
+                        <a target="_blank" href="<?=$google?>"><img src="images/t.png" alt=""></a>
+                        <a target="_blank" href="<?=$youtube?>"><img src="images/y.png" alt=""></a>
                     </div>
                     <div class="clearfix"></div>
                 </div>

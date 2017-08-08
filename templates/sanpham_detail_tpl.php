@@ -94,10 +94,10 @@ if(isset($_GET['id']))
             <div id="ninja-slider-pager">
                 <a rel="1" class="">1</a>
                 <?php
-                for ($i=2;$i<count($result_hinhanh)-1;$i++)
+                for ($i=0;$i<count($result_hinhanh);$i++)
                 {
                 ?>
-                  <a rel="<?=$i?>"><?=$i?></a>
+                  <a rel="<?=$i+2?>"><?=$i+2?></a>
                 <?php
                 }
                 ?>
@@ -111,7 +111,7 @@ if(isset($_GET['id']))
                         <span>1</span>
                     </li>
                     <?php
-                    for ($i=0;$i<count($result_hinhanh)-1;$i++)
+                    for ($i=0;$i<count($result_hinhanh);$i++)
                     {
                     ?>
                       <li class="" style="display: inline-block; height: 50px; width: 101.394px; z-index: 0;"> 

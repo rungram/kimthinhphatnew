@@ -36,5 +36,5 @@
 	<?php	}?>
 </table>
 
-<a href="index.php?com=about&act=add_list"><img src="media/images/add.jpg" border="0"  /></a>
+<a href="index.php?com=about&act=add"><img src="media/images/add.jpg" border="0"  /></a>
 <div class="paging"><?=$paging['paging']?></div>

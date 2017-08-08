@@ -106,6 +106,7 @@ function save_gioithieu(){
     	$data['trangcon'] = isset($_POST['trangcon']) ? 1 : 0;
     	$d->reset();
     	$d->setTable('gioithieu');
+    	$d->setWhere('id', $id);
     	if($d->update($data))
     		transfer("Dữ liệu được cập nhật", "index.php?com=about&act=man_list");
     	else

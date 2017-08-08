@@ -11,9 +11,14 @@
 	$result_spnam=$d->result_array();
 	
 	$d->reset();
-	$sql_xemnhieu="select * from #_product where hienthi = 1 order by luotxem desc limit 10";
+	$sql_xemnhieu="select * from #_product where hienthi = 1 order by luotxem desc limit 20";
 	$d->query($sql_xemnhieu);
 	$result_spxemnhieu=$d->result_array();
+	
+	$d->reset();
+    $sql_cat ="select *  from #_product_list where noibat = 1 order by stt asc limit 2";
+    $d->query($sql_cat);
+    $cat =$d->result_array();
 	
 	$d->reset();
 	$sql_linhvuc="select * from #_linhvuc where hienthi = 1 and linhvuc = 1 order by stt asc limit 4";
@@ -157,8 +162,8 @@
         {
             $gia =  number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
             $giathuc =  ($result_spxemnhieu[$i]['giagiam']!=0)?number_format ($result_spxemnhieu[$i]['giagiam'],0,",",".")." ₫":number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
-        ?>
-          <div class="col-sp col-sm-6">
+            ?>
+          <div class="col-sp col-sm-6" style="width:24%">
 	        <div class="products-thumb">
 	        <a href="chi-tiet-san-pham/<?=$result_spxemnhieu[$i]['tenkhongdau']?>-<?=$result_spxemnhieu[$i]['id']?>.html">
 	        <img src="upload/sanpham/<?php if($result_spxemnhieu[$i]["tc_big"]==1) echo $result_spxemnhieu[$i]["photo"]; else echo $result_spxemnhieu[$i]["photo"] ?>" alt="<?=$result_spxemnhieu[$i]["ten_vi"]?>">
@@ -180,6 +185,54 @@
       </div>
       <!-- /.container -->
     </div>
+    <?php 
+
+    for ($j=0;$j<count($cat);$j++)
+    {
+        ?>
+    <div id="products" class="section-content">
+      <div class="container">
+        <div class="title-section text-center">
+          <h2><?=$cat[$j]["ten_vi"]?></h2>
+          <span></span> </div>
+        <!-- /.title-section -->
+        <div class="row">
+        <?php 
+        $idcat = $cat[$j]["id"];
+        $d->reset();
+        $sql_tungdanhmuc="select * from #_product where hienthi =1 and id_list='$idcat'  order by stt asc limit 10";
+		$d->query($sql_tungdanhmuc);	
+		$result_spnam=$d->result_array();	
+        for ($i=0;$i<count($result_spnam);$i++)
+        {
+            $gia =  number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";
+            $giathuc =  ($result_spnam[$i]['giagiam']!=0)?number_format ($result_spnam[$i]['giagiam'],0,",",".")." ₫":number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";
+            ?>
+          <div class="col-sp col-sm-6">
+	        <div class="products-thumb">
+	        <a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html">
+	        <img src="upload/sanpham/<?php if($result_spnam[$i]["tc_big"]==1) echo $result_spnam[$i]["photo"]; else echo $result_spnam[$i]["photo"] ?>" alt="<?=$result_spnam[$i]["ten_vi"]?>">
+	        </a>
+	          <div class="inner">
+	            <h4><a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html"><?=$result_spnam[$i]["ten_vi"]?></a></h4>
+	            <p><span class="price"><?= $gia?></span><br>
+	              <span class="price-off"><?= $gia?></span></p>
+	          </div>
+	        </div>
+	        <!-- /.products-thumb -->
+	      </div>
+      <?php
+		} 
+		?>
+          <!-- /.col-sp -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <?php 
+    }
+    ?>
     <!-- /#products -->
     <div id="about" class="section-cotent">
       <div class="container">
@@ -220,7 +273,15 @@
           </div>
           <!-- /.col-md-8 -->
           <div class="col-md-4 our-skills">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/BX6xm3EqJ2Y" frameborder="0" allowfullscreen></iframe>
+          <?php 
+               $d->reset();
+               $sql = "select * from #_video where hienthi='1' order by stt desc limit 1";
+               $d->query($sql);
+               $items = $d->result_array();
+            ?>
+            <?php for($i=0, $count=count($items); $i<$count; $i++){?>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/<?php echo $items[$i]['url'] ?>" frameborder="0" allowfullscreen></iframe>
+            <?php }?>
           </div>
           <!-- /.col-md-4 -->
         </div>
