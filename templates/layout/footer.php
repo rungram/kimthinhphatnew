@@ -51,7 +51,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-12 ">
-                    <img src="images/face.png" class="img-responsive" alt="Image">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkimthinhphatt%2F&tabs=timeline&width=340&height=210&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="210" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                 </div>
             </div>
         </div> <!-- /.container -->

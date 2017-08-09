@@ -106,6 +106,7 @@
 </head>
 <body>
 <?php include _template."layout/header.php"; ?>
+
 	<?php include _template.$template."_tpl.php"; ?>
 	<?php include _template."layout/footer.php"; ?>
     <script src="bootstrap/js/bootstrap.min.js"></script>

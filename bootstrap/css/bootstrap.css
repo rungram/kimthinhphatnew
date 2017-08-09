@@ -4048,7 +4048,7 @@ input[type="button"].btn-block {
   margin: 2px 0 0;
   list-style: none;
   font-size: 14px;
-  background-color:#00af50;
+  background-color:#00ca5c;
   border: 1px solid #03d865;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -4965,8 +4965,8 @@ input[type="button"].btn-block {
 }
 
 .navbar-default {
-  background-color:#00af50;
-  border-color:#02a14b ;
+  background-color:#00ca5c;
+  border-color:#00ca5c ;
     -webkit-box-shadow: 0 2px 4px rgba(1, 1, 1, 0.15) ;
   -moz-box-shadow: 0 2px 4px rgba(1, 1, 1, 0.15) ;
   box-shadow: 0 2px 4px rgba(1, 1, 1, 0.15) ;
