@@ -791,3 +791,6 @@ div#detail-pro.row{ padding:10px !important; margin:0px !important}}
 /********************************
 IPHONE 4-4S-5 PORTRAIT (320x568)
 ********************************/
+.col-sp {
+        min-height: 320px !important;
+}
