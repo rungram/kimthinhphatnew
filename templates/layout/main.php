@@ -161,8 +161,9 @@
         for ($i=0;$i<count($result_spxemnhieu);$i++)
         {
             $gia =  number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
-            $giathuc =  ($result_spxemnhieu[$i]['giagiam']!=0)?number_format ($result_spxemnhieu[$i]['giagiam'],0,",",".")." ₫":number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
-            ?>
+            $giathuc =  ($result_spxemnhieu[$i]['giagiam']!=0)?number_format ($result_spxemnhieu[$i]['giagiam'],0,",",".")." ₫": "0 vnđ";
+            $giagiam =  (int)($result_spxemnhieu[$i]['giagiam']);
+          ?>
           <div class="col-sp col-sm-6" style="width:24%">
 	        <div class="products-thumb">
 	        <a href="chi-tiet-san-pham/<?=$result_spxemnhieu[$i]['tenkhongdau']?>-<?=$result_spxemnhieu[$i]['id']?>.html">
@@ -171,7 +172,12 @@
 	          <div class="inner">
 	            <h4><a href="chi-tiet-san-pham/<?=$result_spxemnhieu[$i]['tenkhongdau']?>-<?=$result_spxemnhieu[$i]['id']?>.html"><?=$result_spxemnhieu[$i]["ten_vi"]?></a></h4>
 	            <p><span class="price"><?= $gia?></span><br>
-	              <span class="price-off"><?= $gia?></span></p>
+	            <?php if($giagiam>0) {
+            	?>
+            	<span class="price-off"><?= $gia?></span></p>
+            	<?php
+	            }?>
+	              
 	          </div>
 	        </div>
 	        <!-- /.products-thumb -->
@@ -206,7 +212,8 @@
         for ($i=0;$i<count($result_spnam);$i++)
         {
             $gia =  number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";
-            $giathuc =  ($result_spnam[$i]['giagiam']!=0)?number_format ($result_spnam[$i]['giagiam'],0,",",".")." ₫":number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";
+            $giathuc =  ($result_spxemnhieu[$i]['giagiam']!=0)?number_format ($result_spxemnhieu[$i]['giagiam'],0,",",".")." ₫": "0 vnđ";
+            $giagiam =  (int)($result_spxemnhieu[$i]['giagiam']);
             ?>
           <div class="col-sp col-sm-6">
 	        <div class="products-thumb">
@@ -216,7 +223,11 @@
 	          <div class="inner">
 	            <h4><a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html"><?=$result_spnam[$i]["ten_vi"]?></a></h4>
 	            <p><span class="price"><?= $gia?></span><br>
-	              <span class="price-off"><?= $gia?></span></p>
+	            <?php if($giagiam>0) {
+            	?>
+            	<span class="price-off"><?= $gia?></span></p>
+            	<?php
+	            }?>
 	          </div>
 	        </div>
 	        <!-- /.products-thumb -->
