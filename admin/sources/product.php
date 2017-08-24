@@ -274,6 +274,8 @@ function save_item(){
 		$data['masp'] = $_POST['masp'];	
 		$data['tenkhongdau'] = changeTitle($_POST['ten_vi']);	
 		$data['gia'] = (int)$_POST['gia'];		
+		$data['vat'] = (int)$_POST['vat'];
+		$data['phivanchuyen'] = (int)$_POST['phivanchuyen'];
 		$data['giagiam'] = (int)$_POST['giagiam'];				
 		$data['mota_vi'] = $_POST['mota_vi'];
 		$data['mota_en'] = $_POST['mota_en'];
@@ -320,6 +322,8 @@ function save_item(){
 		$data['tenkhongdau'] = changeTitle($_POST['ten_vi']);	
 		$data['video_hinh'] = $_POST['video_hinh'];	
 		$data['gia'] = (int)$_POST['gia'];	
+		$data['vat'] = (int)$_POST['vat'];
+		$data['phivanchuyen'] = (int)$_POST['phivanchuyen'];
 		$data['giagiam'] = (int)$_POST['giagiam'];					
 		$data['mota_vi'] = $_POST['mota_vi'];
 		$data['mota_en'] = $_POST['mota_en'];

@@ -298,6 +298,8 @@ function get_main_list22($id_mau)
     <br /><br />   
     <b>Tên sản phẩm</b> <input type="text" name="ten_vi" value="<?=$item['ten_vi']?>" class="input" /><br /> 
     <b>Giá sản phẩm</b> <input type="text" name="gia"    value="<?=$item['gia']?>"    class="input" /><br />  
+    <b>VAT</b> <input type="text" name="vat"    value="<?=$item['vat']?>"    class="input" /><br />  
+    <b>Phí vận chuyển</b> <input type="text" name="phivanchuyen"    value="<?=$item['phivanchuyen']?>"    class="input" /><br />  
     <b>Giá khuyến mãi(nếu có)</b> <input type="text" name="giagiam"    value="<?=$item['giagiam']?>"    class="input" /><br />  
     <b>Mô tả ngắn</b>  <br /> 
    <textarea class="ckeditor" name="mota_vi"><?=$item['mota_vi']?></textarea> 

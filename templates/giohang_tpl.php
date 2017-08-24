@@ -56,9 +56,11 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
                  <table class="table table-hover table-vcenter"> 
                      <thead> 
                          <tr>
-                             <th class="text-left text-capitalize">  Sản phẩm </th>
+                             <th class="text-left text-capitalize" style="width:160px;">  Sản phẩm </th>
                              <th class="text-center text-capitalize" style="width:120px;"> Đơn giá </th>
-                             <th class="text-center text-capitalize" style="width:80px;">  Số lượng </th>
+                             <th class="text-center text-capitalize" style="width:40px;">  Số lượng </th>
+                             <th class="text-center text-capitalize" style="width:80px;">  VAT </th>
+                             <th class="text-center text-capitalize" style="width:80px;">  Phí vận chuyển (1 đơn vị)</th>
                              <th class="text-center text-capitalize" style="width:120px;">  Thành tiền </th>
                              <th class="text-center" style="width:40px;"> </th>
                          </tr> 
@@ -105,13 +107,23 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
                              <input onchange="updatecart()" type="number" step="1" min="0" name="product<?=$pid?>" value="<?=$q?>" title="SL" class="numberic form-control">
                              </div> 
                          </td>
-                         
+                         <td class="text-center"> <span class="visible-xs">VAT</span>
+                         <?php  
+                             echo get_vat($pid).' %';
+                         ?>
+                         </td>
+                         <td class="text-center"> <span class="visible-xs">Phí vận chuyển</span> 
+                         <?php  
+                             echo number_format(get_phivanchuyen($pid),0, ',', '.').'₫';
+                         ?>
+                             
+                         </td>
                          <td class="text-right"> <span class="visible-xs">Thành tiền</span> <strong class="lblTotalPrice">
                          <?php 
 						if($psale ==0) 
-    						echo number_format(get_price($pid)*$q,0, ',', '.').'₫';
+    						echo number_format(get_price($pid)*$q+get_price($pid)*$q*get_vat($pid)/100+get_phivanchuyen($pid)*$q,0, ',', '.').'₫';
     						else 
-    						echo number_format(get_giagiam($pid)*$q,0, ',', '.').'₫';
+    						echo number_format(get_giagiam($pid)*$q+get_giagiam($pid)*$q*get_vat($pid)/100+get_phivanchuyen($pid)*$q,0, ',', '.').'₫';
     					 ?>
                          </strong> </td>
                          <th scope="row" class="text-center"> <a href="javascript:del(<?=$pid?>)" class="remove text-danger hidden-xs" > <i class=" fa fa-eraser" aria-hidden="true"></i>
