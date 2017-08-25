@@ -18,7 +18,7 @@
 						
 			$curPage = isset($_GET['p']) ? $_GET['p'] : 1;
 			$url=getCurrentPageURL();
-			$maxR=10;
+			$maxR=300;
 			$maxP=5;
 			$paging=paging_home($result_spnam , $url, $curPage, $maxR, $maxP);
 			$result_spnam=$paging['source'];

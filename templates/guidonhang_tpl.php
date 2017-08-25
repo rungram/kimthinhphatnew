@@ -34,15 +34,18 @@
 					else 
 					$giamathang=get_giagiam($id_sp);
 					$tenkhongdau=get_kodau($id_sp);
+					$ship = $soluong*get_phivanchuyen($id_sp);
+					$vat =  $giamathang*$soluong*get_vat($id_sp)/100;
 					$size= $_SESSION['size'.$id_sp];
 			        $mau= $_SESSION['mau'.$id_sp];
-		
-	  		 $tonggia=$giamathang*$soluong;
+		             
+	  		 $tonggia=$giamathang*$soluong+$vat+$ship;
 	 		 $d->reset();
 	  		 $sql_sendgiohang="insert into #_donhang(tennguoidat,dienthoai,diachi,noidung,tenmathang,giamathang,soluong,ngaydathang,tonggia,hinh,user,tenkhongdau,masp,size,mau,email,tinh_tp,ngaytim)
 	values('$tennguoidat','$dienthoai','$diachi','$noidung','$tenmathang','$giamathang','$soluong','$ngaydathang','$tonggia','$hinhmathang','$user','$tenkhongdau','$masp','$size','$mau','$email','$tinh_tp','$ngaytim')";
    	  		 $send_giohang=$d->query($sql_sendgiohang);	
-			
+ 		   
+        }
    	   //add vo database
 	   
 		 //add vo mail	
@@ -91,11 +94,10 @@
 				  <td align="center" width="5%">STT</td>
 				  <td align="center">Mã sản phẩm</td>
 				  <td align="center">Sản phẩm</td>
-				  <td align="center">Size</td>
-				  <td align="center">Màu</td>
 				  <td align="center">Đơn Giá</td>
-			
 				  <td align="center">Số lượng</td>
+			      <td align="center">VAT</td>
+			      <td align="center">Phí vận chuyển</td>
 				  <td align="center">Thành Tiền</td>
 				</tr>';
 		
@@ -116,18 +118,20 @@
 					$giamathang=get_price($id_sp);
 					else 
 					$giamathang=get_giagiam($id_sp);
+					$ship = $soluong*get_phivanchuyen($id_sp);
+					$vat = $giamathang*$soluong*get_vat($id_sp)/100;
 					$j=$i+1;
 			$body .='<tr>
 						<td align="center" width="5%">'.$j.'</td>
 					
 						<td align="center">'.$pma.'</td>
 						<td align="center">'.$tenmathang.'</td>
-						<td align="center">'.$size.'</td>
-						<td align="center">'.$mau.'</td>
 						<td align="center">'. number_format ($giamathang,0,",",".").' VNĐ</td>
 						
 						<td align="center">'.$soluong.'</td>
-						<td align="center">'. number_format(($soluong*$giamathang),0,",",".").' VNĐ</td>
+					    <td align="center">'. number_format ($vat,0,",",".").' VNĐ</td>
+				        <td align="center">'. number_format ($ship,0,",",".").' VNĐ</td>
+						<td align="center">'. number_format(($soluong*$giamathang+$ship+$vat),0,",",".").' VNĐ</td>
 						</tr>';
 					
 				}
@@ -195,5 +199,4 @@ $mail->CharSet = "utf-8";
 			
 		}	
     }
-}
 ?>

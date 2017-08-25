@@ -331,7 +331,7 @@ function get_main_list22($id_mau)
    	<b>Hiển thị</b> <input type="checkbox" name="hienthi" <?=(!isset($item['hienthi']) || $item['hienthi']==1)?'checked="checked"':''?>><br /> 
    	<b>Chính sách</b> <input type="checkbox" name="chinhsach" <?=(!isset($item['chinhsach']) || $item['chinhsach']==1)?'checked="checked"':''?>><br /> 
    	<b>Phong cách</b> <?php echo $str_phongcach;?><br><br>
-   	<b>Xuất xứ</b> <?php echo $str_xuatxu;?><br><br>
+   	<b>Xuất xứ</b><input type="text" name="xuat_xu" value="<?=$item['xuat_xu']?>" class="input" /><br><br>
    	<b>Tình trạng</b> <?php echo $str_tinhtrang;?><br><br>
 	<input type="hidden" name="id" id="id" value="<?=@$item['id']?>" />
 	<input type="submit" value="Lưu" class="btn" />

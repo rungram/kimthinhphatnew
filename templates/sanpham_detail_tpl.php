@@ -138,7 +138,7 @@ if(isset($_GET['id']))
     <h4>
     	<span class="price"><?php echo number_format ($chitiet_sp['gia'],0,",",".")." vnđ";?></span>
         <span class="price-off"><?php echo number_format ((!empty($chitiet_sp['giagiam']))?$chitiet_sp['giagiam']:$chitiet_sp['gia'],0,",",".")." vnđ";?></span>
-        <span class="VAT">10%</span>
+        <span class="VAT"><?=$chitiet_sp['vat']?>%</span>
     </h4>
     <div class="clearfix"></div>
     <div class="button"> 

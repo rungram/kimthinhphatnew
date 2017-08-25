@@ -26,21 +26,21 @@ function get_lists(){
     #----------------------------------------------------------------------------------------
     if($_REQUEST['hienthi']!='')
     {
-    $id_up = $_REQUEST['hienthi'];
-    $sql_sp = "SELECT id,hienthi FROM #_gioithieu where id='".$id_up."'";
-    $d->query($sql_sp);
-    $cats= $d->result_array();
-    $hienthi=$cats[0]['hienthi'];
-    if($hienthi==0)
-    {
-	$sqlUPDATE_ORDER = "UPDATE #_gioithieu SET hienthi =1 WHERE  id = ".$id_up."";
-	$resultUPDATE_ORDER = mysql_query($sqlUPDATE_ORDER) or die("Not query sqlUPDATE_ORDER");
-    }
-    else
-	{
-	$sqlUPDATE_ORDER = "UPDATE #_gioithieu SET hienthi =0  WHERE  id = ".$id_up."";
-	$resultUPDATE_ORDER = mysql_query($sqlUPDATE_ORDER) or die("Not query sqlUPDATE_ORDER");
-	}
+        $id_up = $_REQUEST['hienthi'];
+        $sql_sp = "SELECT id,hienthi FROM #_gioithieu where id='".$id_up."'";
+        $d->query($sql_sp);
+        $cats= $d->result_array();
+        $hienthi=$cats[0]['hienthi'];
+        if($hienthi==0)
+        {
+        	$sqlUPDATE_ORDER = "UPDATE #_gioithieu SET hienthi =1 WHERE  id = ".$id_up."";
+        	$d->query($sqlUPDATE_ORDER);
+        }
+        else
+    	{
+        	$sqlUPDATE_ORDER = "UPDATE #_gioithieu SET hienthi =0  WHERE  id = ".$id_up."";
+        	$d->query($sqlUPDATE_ORDER);
+    	}
 	}
 
 	$sql = "select * from #_gioithieu";

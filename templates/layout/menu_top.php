@@ -52,7 +52,12 @@
     				  }
     				  $menutype = 'danh-muc-cat';
 			?>
-                        <li><a href="<?=$menutype?>/<?=$cat[$j]["tenkhongdau"]?>-<?=$cat[$j]["id"]?>.html"><?=$cat[$j]["ten_vi"]?> </a></li>
+                        <li><a href="<?=$menutype?>/<?=$cat[$j]["tenkhongdau"]?>-<?=$cat[$j]["id"]?>.html"><?=$cat[$j]["ten_vi"]?> </a>
+                            <ul class="dropdown-menu" id="sm-15003598033380005-6" role="group" aria-hidden="true" aria-labelledby="sm-15003598033380005-5" aria-expanded="false">
+                                <li><a href="<?=$menutype?>/<?=$cat[$j]["tenkhongdau"]?>-<?=$cat[$j]["id"]?>.html">TEST</a>
+                                <li><a href="<?=$menutype?>/<?=$cat[$j]["tenkhongdau"]?>-<?=$cat[$j]["id"]?>.html">TEST</a>
+                            </ul>
+                        </li>   
             <?php }?>
                     </ul>
                 </li>

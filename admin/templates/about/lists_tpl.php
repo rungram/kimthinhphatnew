@@ -16,18 +16,16 @@
         <?php 
 		if(@$items[$i]['hienthi']==1)
 		{
-		?>
-        <a href="index.php?com=about&act=man_list&hienthi=<?=$items[$i]['id']?>"><img src="media/images/active_1.png"  border="0"/></a>
-		<? 
+        $hienthi = '<a href="index.php?com=about&act=man_list&hienthi='.$items[$i]['id'].'"><img src="media/images/active_1.png"  border="0"/></a>';
+		
 		}
 		else
 		{
-		?>
-         <a href="index.php?com=about&act=man_list&hienthi=<?=$items[$i]['id']?>"><img src="media/images/active_0.png" border="0" /></a>
-         <?php
+		   $hienthi = '<a href="index.php?com=about&act=man_list&hienthi='.$items[$i]['id'].'"><img src="media/images/active_0.png"  border="0"/></a>';
+         
 		 }?>
         
-        
+        <?php echo $hienthi;?>
         
         </td>
 		<td style="width:5%;"><a href="index.php?com=about&act=capnhat&id=<?=$items[$i]['id']?>"><img src="media/images/edit.png" border="0" /></a></td>

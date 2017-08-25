@@ -57,6 +57,8 @@
                             <tbody> 
                             <?php
                             $max=count($_SESSION['cart']);
+                            $ship = 0;
+                            $vat = 0;
                             	for($i=0;$i<$max;$i++)
                             	{
                             		
@@ -68,6 +70,16 @@
                             					$pkodau=get_kodau($pid);
                             					$psale=get_giagiam($pid);
                             					$pma=get_masp($pid);
+                            					if($psale ==0)
+                            					{
+                            					    $gia = get_price($pid);
+                            					}
+                            					else
+                            					{
+                            					    $gia = $psale;
+                            					}
+                            					$ship = $ship+$q*get_phivanchuyen($pid);
+                            					$vat = $vat + $gia*$q*get_vat($pid)/100;
                             		?> 
                                 <tr class="row-1193"> 
                                     <td colspan="2" class="text-left"> 
@@ -97,15 +109,21 @@
                                      </td>
                                  </tr>
                                  <tr> 
-                                     <td colspan="2" class="text-right text-primary" style="white-space:nowrap;font-weight:700;">V.A.T: <strong class="lblTotal" data-total="180000">0</strong> 
+                                     <td colspan="2" class="text-right text-primary" style="white-space:nowrap;font-weight:700;">V.A.T: <strong class="lblTotal" data-total="180000">
+                                     <?php  
+                                     echo number_format($vat,0, ',', '.').'₫';
+                                     ?></strong> 
                                      </td>
                                  </tr>
                                  <tr class="ship-price"> 
-                                     <td colspan="2" class="text-right text-info" style="white-space:nowrap;font-weight:700;">  Phí vận chuyển: <strong class="lblShipPrice" data-price="0">0</strong> 
+                                     <td colspan="2" class="text-right text-info" style="white-space:nowrap;font-weight:700;">  Phí vận chuyển: <strong class="lblShipPrice" data-price="0">
+                                     <?php  
+                                     echo number_format($ship,0, ',', '.').'₫';
+                                     ?></strong> 
                                        <input name="Ship" id="Ship" value="0" type="hidden"> </td>
                                  </tr>
                                  <tr class="ship-price"> 
-                                     <td colspan="2" class="text-right text-success">  Tổng cộng: <strong class="lblTotalPrice"><?= number_format( get_ordersale_total($pid)+$row_setting['phivc'],0, ',', '.').'đ';?></strong> 
+                                     <td colspan="2" class="text-right text-success">  Tổng cộng: <strong class="lblTotalPrice"><?= number_format( get_ordersale_total($pid)+$ship + $vat,0, ',', '.').'đ';?></strong> 
                                      </td>
                                  </tr>
 

@@ -67,6 +67,8 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
                      </thead> 
                      <tbody> 
                      <?php
+                     $ship = 0;
+                     $vat = 0;
                 		if(is_array($_SESSION['cart'])){
                 		$max=count($_SESSION['cart']);
                 		for($i=0;$i<$max;$i++){
@@ -78,6 +80,16 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
                 			$pmota=get_mota($pid);
                 			$pkodau=get_kodau($pid);
                 			$psale=get_giagiam($pid);
+                			if($psale ==0)
+                			{
+                			    $gia = get_price($pid);
+                			}
+                			else 
+                			{
+                			    $gia = $psale;
+                			}
+                			$ship = $ship+$q*get_phivanchuyen($pid);
+                			$vat = $vat + $gia*$q*get_vat($pid)/100;
                 			if($q==0) continue;
                 		?>
                          <tr class="row-1193"> 
@@ -90,7 +102,7 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
                                   <div class="media-body"> 
                                       <h4 class="media-heading"> 
                                       <a href="chi-tiet-san-pham/<?=$pkodau?>-<?=$pid?>.html" title="Giỏ Xách Kiểu 8"><?=$pname?></a> 
-                                      <br> <br> Mã sp: <strong>$pma</strong> </h4> 
+                                      <br> <br> Mã sp: <strong><?=$pma?></strong> </h4> 
                                   </div> 
                               </div> 
                           </td>
@@ -121,9 +133,9 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
                          <td class="text-right"> <span class="visible-xs">Thành tiền</span> <strong class="lblTotalPrice">
                          <?php 
 						if($psale ==0) 
-    						echo number_format(get_price($pid)*$q+get_price($pid)*$q*get_vat($pid)/100+get_phivanchuyen($pid)*$q,0, ',', '.').'₫';
+    						echo number_format(get_price($pid)*$q,0, ',', '.').'₫';
     						else 
-    						echo number_format(get_giagiam($pid)*$q+get_giagiam($pid)*$q*get_vat($pid)/100+get_phivanchuyen($pid)*$q,0, ',', '.').'₫';
+    						echo number_format(get_giagiam($pid)*$q,0, ',', '.').'₫';
     					 ?>
                          </strong> </td>
                          <th scope="row" class="text-center"> <a href="javascript:del(<?=$pid?>)" class="remove text-danger hidden-xs" > <i class=" fa fa-eraser" aria-hidden="true"></i>
@@ -137,17 +149,28 @@ if($_REQUEST['command']=='delete' && $_REQUEST['pid']>0){
                      </tbody>  
                      <tfoot> 
                          <tr>
-                             <td colspan="3" class="text-right"> V.A.T </td>
-                             <td class="text-right"> <strong class="lblTotal">0</strong> </td>
+                             <td colspan="5" class="text-right"> V.A.T </td>
+                             <td class="text-right"> 
+                                <strong class="lblTotal">
+                                     <?php  
+                                     echo number_format($vat,0, ',', '.').'₫';
+                                     ?>
+                                </strong> </td>
                              <td></td>
                          </tr>
                          <tr>
-                             <td colspan="3" class="text-right">Ship </td>
-                             <td class="text-right"> <strong class="lblTotal">0</strong> </td>
+                             <td colspan="5" class="text-right">Ship </td>
+                             <td class="text-right"> 
+                                 <strong class="lblTotal">
+                                     <?php  
+                                     echo number_format($ship,0, ',', '.').'₫';
+                                     ?>
+                                 </strong> 
+                             </td>
                              <td></td>
                          </tr> 
                          <tr>
-                             <td colspan="3" class="text-right">  Tổng cộng </td>
+                             <td colspan="5" class="text-right">  Tổng cộng </td>
                              <td class="text-right"> <strong class="lblTotal"><?= number_format( get_ordersale_total($pid)+$row_setting['phivc'],0, ',', '.').'đ';?></strong> </td>
                              <td></td>
                          </tr> 

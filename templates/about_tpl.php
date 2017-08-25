@@ -69,23 +69,7 @@
               <p><a href="gioi-thieu/gioi-thieu-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
             </div>
           </div>
-          <?php 
-                $i++;
-                if($i<count($result_detailq))
-                {
-          ?>
-            <div class="media">
-            <div class=" pull-left"></div>
-            <div class="  media-body">
-              <h3 class="heading"><a href="gioi-thieu/gioi-thieu-<?=$result_detailq[$i]['id']?>.html"><?=$result_detailq[$i]['ten_vi']?></a></h3>
-              <p class="sort"><?=$Summary?></p>
-              <p><a href="gioi-thieu/gioi-thieu-<?=$result_detailq[$i]['id']?>.html" class="btn btn-primary btn-luxe-primary">Xem thêm .. <i class="ti-angle-right"></i></a></p>
-            </div>
-          </div>
-              
-         <?php 
-                }
-        ?>  
+          
         </div>
          <?php
          }
