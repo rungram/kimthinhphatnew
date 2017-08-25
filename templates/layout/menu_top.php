@@ -37,6 +37,7 @@
             ?>
                 <li>
                     <a href="<?=$menutype?>/<?=$list[$i]["tenkhongdau"]?>-<?=$list[$i]["id"]?>.html"  <?=$child?>><?=$list[$i]["ten_vi"]?><span class="caret"></span></a>
+                    <?php if(count($cat)>0){?>
                     <ul class="dropdown-menu" id="sm-15003598033380005-6" role="group" aria-hidden="true" aria-labelledby="sm-15003598033380005-5" aria-expanded="false">
             <?php   for($j=0,$count_c=count($cat);$j<$count_c;$j++){ 
     				  $d->reset();
@@ -53,13 +54,19 @@
     				  $menutype = 'danh-muc-cat';
 			?>
                         <li><a href="<?=$menutype?>/<?=$cat[$j]["tenkhongdau"]?>-<?=$cat[$j]["id"]?>.html"><?=$cat[$j]["ten_vi"]?> </a>
+                            <?php if(count($item)>0){?>
                             <ul class="dropdown-menu" id="sm-15003598033380005-6" role="group" aria-hidden="true" aria-labelledby="sm-15003598033380005-5" aria-expanded="false">
-                                <li><a href="<?=$menutype?>/<?=$cat[$j]["tenkhongdau"]?>-<?=$cat[$j]["id"]?>.html">TEST</a>
-                                <li><a href="<?=$menutype?>/<?=$cat[$j]["tenkhongdau"]?>-<?=$cat[$j]["id"]?>.html">TEST</a>
+                                <?php   for($k=0,$count_i=count($item);$k<$count_i;$k++){
+    				  $menutype = 'danh-muc-item';
+			?>
+                                <li><a href="<?=$menutype?>/<?=$item[$k]["tenkhongdau"]?>-<?=$item[$k]["id"]?>.html"><?=$item[$k]["ten_vi"]?></a>
+                         <?php }?>   
                             </ul>
+                            <?php }?>
                         </li>   
             <?php }?>
                     </ul>
+                   <?php }?> 
                 </li>
                 
             <?php }?>

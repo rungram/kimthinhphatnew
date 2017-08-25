@@ -34,13 +34,17 @@
       <?php
 	for ($i=0;$i<count($result_spnam);$i++)
 	{ 
+	    $gia = (!empty($result_spnam[$i]['gia']))?number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ":'Liên hệ cửa hàng hoặc nhân viên';
+	    
 	?>
       <div class="col-sp col-sm-6">
         <div class="products-thumb"> <img src="upload/sanpham/<?php if($result_spnam[$i]["tc_big"]==1) echo $result_spnam[$i]["photo"]; else echo $result_spnam[$i]["photo"] ?>" alt="<?=$result_spnam[$i]["ten_vi"]?>">
           <div class="inner">
             <h4><a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html"><?=$result_spnam[$i]["ten_vi"]?></a></h4>
-            <p><span class="price"><?php echo number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";?></span><br>
+            <p><span class="price"><?php echo $gia;?></span><br>
+            <?php if(!empty($result_spnam[$i]['giagiam'])){?>
               <span class="price-off"><?php echo number_format ((!empty($result_spnam[$i]['giagiam']))?$result_spnam[$i]['giagiam']:$result_spnam[$i]['gia'],0,",",".")." vnđ";?></span></p>
+            <?php }?>
           </div>
         </div>
         <!-- /.products-thumb -->

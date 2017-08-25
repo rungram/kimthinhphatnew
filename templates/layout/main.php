@@ -160,7 +160,8 @@
         <?php 
         for ($i=0;$i<count($result_spxemnhieu);$i++)
         {
-            $gia =  number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
+            //$gia =  number_format ($result_spxemnhieu[$i]['gia'],0,",",".")." vnđ";
+            $gia = (!empty($result_spnam[$i]['gia']))?number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ":'Liên hệ cửa hàng hoặc nhân viên';
             $giathuc =  ($result_spxemnhieu[$i]['giagiam']!=0)?number_format ($result_spxemnhieu[$i]['giagiam'],0,",",".")." ₫": "0 vnđ";
             $giagiam =  (int)($result_spxemnhieu[$i]['giagiam']);
           ?>
@@ -211,7 +212,8 @@
 		$result_spnam=$d->result_array();	
         for ($i=0;$i<count($result_spnam);$i++)
         {
-            $gia =  number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";
+            //$gia =  number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ";
+            $gia = (!empty($result_spnam[$i]['gia']))?number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ":'Liên hệ cửa hàng hoặc nhân viên';
             $giathuc =  ($result_spxemnhieu[$i]['giagiam']!=0)?number_format ($result_spxemnhieu[$i]['giagiam'],0,",",".")." ₫": "0 vnđ";
             $giagiam =  (int)($result_spxemnhieu[$i]['giagiam']);
             ?>

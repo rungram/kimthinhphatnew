@@ -32,56 +32,44 @@
 	
 	$total_sp = count($result_spnam);
 ?>
-<div id="pageContent" class="page-width">
-    <div id="mainContentPage">
-      <div class="project-category">
-        <div>
-          <h1 class="seo-tag"> Mẫu nhà đẹp </h1>
-          <?php //include _template."layout/menu_top_item.php"; ?>
-<!--           <a href="/du-an/video-nha-dep-biet-thu.aspx">Video</a>  </div> -->
-          </div> 
-        <div class="clear"> </div>
-        <div class="sep40 sep-menu"> </div>
-      </div>
-      <div runnat="Window" id="Window1_RD165" apply="yPhM+NHI1I4udJTQGLC2n2iegQtHKvZsLnSU0Biwtp8dMfrYAWuORg==" class="Window list-item">
-        <div id="container">
-          <input runnat="IntBox" id="cboCategory_RD168" class="IntBox cboCategory hide" />
-          <div runnat="DataList" class="DataList" id="listProject_RD171">
-            <div class="paging paging-top"></div>
-            <div class="datalist-content">
-              <?php for($i=0,$count_spnam=count($result_spnam);$i<$count_spnam;$i++) { 
-              ?>
-              <div class="element-item" data-category="2">
-                <div class="p10">
-                  <div class="rel"> <a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html"> <img src="upload/sanpham/<?php if($result_spnam[$i]["tc_big"]==1) echo $result_spnam[$i]["thumb"]; else echo $result_spnam[$i]["thumb"] ?>" alt="<?=$result_spnam[$i]["ten_vi"]?>" />
-                    <div class="title-element utm"><?=$result_spnam[$i]["ten_vi"]?></div>
-                    <div class="tip clearP">
-                      <p><?=$result_spnam[$i]["mota_vi"]?></p>
-                    </div>
-                    </a> </div>
-                </div>
-              </div>
-              <?php } ?>
-            </div>
-            <div class="paging paging-bottom"></div>
+<div id="products-cata" class="section-content">
+  <div class="container">
+    <div class="title-section text-center">
+      <h2>Sản phẩm</h2>
+      <span></span></div>
+    <!-- /.title-section -->
+    <div class="row">
+      <!-- /.col-sp -->
+      <?php
+	for ($i=0;$i<count($result_spnam);$i++)
+	{ 
+	    $gia = (!empty($result_spnam[$i]['gia']))?number_format ($result_spnam[$i]['gia'],0,",",".")." vnđ":'Liên hệ cửa hàng hoặc nhân viên';
+	    
+	?>
+      <div class="col-sp col-sm-6">
+        <div class="products-thumb"> <img src="upload/sanpham/<?php if($result_spnam[$i]["tc_big"]==1) echo $result_spnam[$i]["photo"]; else echo $result_spnam[$i]["photo"] ?>" alt="<?=$result_spnam[$i]["ten_vi"]?>">
+          <div class="inner">
+            <h4><a href="chi-tiet-san-pham/<?=$result_spnam[$i]['tenkhongdau']?>-<?=$result_spnam[$i]['id']?>.html"><?=$result_spnam[$i]["ten_vi"]?></a></h4>
+            <p><span class="price"><?php echo $gia;?></span><br>
+            <?php if(!empty($result_spnam[$i]['giagiam'])){?>
+              <span class="price-off"><?php echo number_format ((!empty($result_spnam[$i]['giagiam']))?$result_spnam[$i]['giagiam']:$result_spnam[$i]['gia'],0,",",".")." vnđ";?></span></p>
+            <?php }?>
           </div>
         </div>
-        <div class="clear"> </div>
+        <!-- /.products-thumb -->
       </div>
-      <script id="script-server">$("#txtSearch_RD150").textbox();$("#txtSearch_RD150").unbind("keypress");$("#txtSearch_RD150").onEnter("Search");$("#Button1_RD153").unbind("click");$("#Button1_RD153").click(function(){$("#Button1_RD153").actionComponent("Search")});$("#cboCategory_RD168").intbox();$("#cboCategory_RD168").unbind("change");$("#cboCategory_RD168").change(function(){$("#cboCategory_RD168").actionComponent("ChangeCategory")});$("#listProject_RD171").data("DisplayCount",36);$("#listProject_RD171").data("PagingParam","p");$("#listProject_RD171").data("CurrentPage",1);$("#listProject_RD171").data("QueryEncode","YeCMcHuknMWMGDS7PyYbWavqExsq/oyGj1g718jHSzz2LBajGfrTdmslpVUfI8Lcez7Z7zWONsWXQVZGYH9XuiZnfdBDLz1K7Dm5D/KGTZoyv3f/Qb0y9Cfo6s9bhjNFMeLMZOMWLDsy2LbVzhe5Y9iA7U9e2qYlnHbGvzugFaUuXdEuUAvFQudN0f4Le8IyzPHjWVraxGvFd3QqOKlxu07LZJJHmGmm+yr6yLIY+2uk/oLw3KVbi16OPLUI2bst5716z3bPrTZWUBNQSYwr2JPUOLixwaWuKJh9BXaUAM1Z69lkNwlNBbirVOaGe2ikz+heLP4XOsaWWMWRnQMdWBA7gJHfIeM40wB6KqtWP7pmo/w+1Rd01Gt4uyjvGUMDenbrFXNbaqVLF4Mag79kTPz8IQff/62zKTnoFVAwoylgFZc2RHEaUUduwnBdMWpvOl63yLMF6T5gt0QBS1qbCNsVFg4oT72vEWKykVn4rpY7pl4ZsDdL2v5d6PKIp5g1wegRHpIZpHvOk5w4nVafnbN0MgMJCZbvfdzpqEmYO3Ay4/dnHpI/490VqW/NNjMOk5QzL8v+y2e62uJU6VvAEUBwJ6SCkJOmZS6CN8gsx+9DpucSqyQlYPTVwonKZMmXrroYO6nidf1HptbgvjNSMOAQs88V5CFxRNSbZ+Ndl+mHWk2YVs2djNtE3iG5U57nH2usDws9iWZmq8edLC15Sb+UWpr1FGozxpXbt6gueDTvEv8JKTxAYzm9HhTUl81zHTH62AFrjkY=");$("#listProject_RD171").data("Template","<div class=\"element-item\" data-category=\"@{ProjectCategory}\">                    
-		<div class=\"p10\">                        
-			<div class=\"rel\"> 
-				<a href=\"@{GetDetailUrl}\">                                
-					<img src=\"@{Media}.ashx?w=330&h=330&mode=crop\" alt=\"@{Name}\" />                                
-					<div class=\"title-element utm\">@{Name}                                
-					</div>                                
-					<div class=\"tip clearP\">@{Description}
-					</div>                            
-				</a>                        
-			</div>                    
-		</div>                
-	</div>");$("#listProject_RD171").data("PageCount",2.0);$("#listProject_RD171").datalist().reloadPaging();$("#Window1_RD165").data("paramPage","lang=vi");
-    </script> 
+  <?php
+	} 
+	?>
     </div>
+    <!-- /.row -->
   </div>
-  <div class="sep20"> </div>	
+  <!-- /.container -->
+  <hr>
+  <div class="text-center">
+                    <ul class="pagination">
+                          <?=$paging['paging']?></div>
+                     </ul>
+  </div>  
+
+</div>
