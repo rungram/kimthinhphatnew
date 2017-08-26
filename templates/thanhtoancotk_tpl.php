@@ -90,11 +90,8 @@
                                             <div class="media-body"> 
                                                 <h4 class="media-heading"> <a href="chi-tiet-san-pham/<?=$pkodau?>-<?=$pid?>.html" title="<?=$pname?>">  <?=$pname?></a> <br> MÃ sp: <strong><?=$pma?></strong> </h4> <p> <strong class="lblTotalPrice">
                                                 <?php 
-					if($psale ==0) 
-					echo number_format(get_price($pid),0, ',', '.').'₫ x '.$q;
-					else 
-					echo number_format(get_giagiam($pid),0, ',', '.').'₫ x '.$q;
-					 ?>=<?php echo number_format(get_giagiam($pid)*$q,0, ',', '.').'₫';?>  </strong> </p> 
+					echo number_format($gia,0, ',', '.').'₫ x '.$q;
+					 ?>=<?php echo number_format($gia*$q,0, ',', '.').'₫';?>  </strong> </p> 
                                           </div>
                                         </div> 
                                     </td>
