@@ -227,7 +227,7 @@
 	            <p><span class="price"><?= $gia?></span><br>
 	            <?php if($giagiam>0) {
             	?>
-            	<span class="price-off"><?= $gia?></span></p>
+            	<span class="price-off"><?= number_format ($giagiam,0,",",".")." vnđ";?></span></p>
             	<?php
 	            }?>
 	          </div>
